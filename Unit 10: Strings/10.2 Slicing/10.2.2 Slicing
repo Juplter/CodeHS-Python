@@ -1,0 +1,36 @@
+Question: 1
+Which of the following prints CDE?
+my_string = "ABCDE"
+print(my_string[3:])
+
+my_string = "ABCDE"
+print(my_string[2:]) (Correct Answer)
+
+my_string = "ABCDE"
+print(my_string[3:5])
+
+my_string = "ABCDE"
+print(my_string[2:4])
+
+
+Question: 2
+Which operator allows you to create a string that is the result of putting two different strings together, side by side?
++ (Correct Answer)
+
+-
+
+*
+
+/
+
+
+Question: 3
+What is the correct way to concatenate the variable sign (sign = "Happy day!") to produce the following output?
+expected output: “Happy Birthday!”
+print(sign[:6] + "Birth" + sign[6:]) (Correct Answer)
+
+print(sign[:5] + "Birth" + sign[6:])
+
+print(sign[:6] + "Birth" + sign[5:])
+
+print(sign[:6] + "Birth" + sign[:6])
