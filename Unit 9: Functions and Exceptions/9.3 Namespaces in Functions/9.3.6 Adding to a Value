@@ -1,0 +1,10 @@
+num1 = 10
+
+# Your code here...
+
+def add_numbers():
+    print(num1 + num2)
+
+num2 = int(input("Enter a number: "))
+
+add_numbers()
