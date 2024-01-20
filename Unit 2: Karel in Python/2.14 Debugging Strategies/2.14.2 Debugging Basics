@@ -13,22 +13,15 @@ tennis_balls()
 move()
 tennis_balls()
 
-
 Yes, because it is using the tennis_balls() function.
-
 
 No, because the tennis_balls() function is looping the wrong number of times.
 
-
 Yes, because the move() command is being called outside of the function.
 
-Correct Answer
-No, because the tennis_balls() function has an incorrect if/else statement.
-
-Great work!
+No, because the tennis_balls() function has an incorrect if/else statement. (Correct Answer)
 
 
- Correct
 Question: 2
 The following code contains an error. What line is it on?
 
@@ -44,14 +37,10 @@ The following code contains an error. What line is it on?
 10 move()
 11 move()
 
-
 line 3
 
-Correct Answer
-line 4
-
+line 4 (Correct Answer)
 
 line 5
-
 
 line 7
