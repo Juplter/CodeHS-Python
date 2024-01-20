@@ -1,1 +1,31 @@
+Question: 1
+Which function will teach Karel how to spin in a circle one time?
 
+A
+def spin():
+    turn_right()
+B
+def spin():
+    turn_left()
+    turn_left()
+    turn_left()
+    turn_left()
+C
+def spin():
+    turn_left()
+    turn_left()
+D
+def spin():
+    move()
+    move()
+    move()
+    move()
+
+
+A
+
+B (Correct Answer)
+
+C
+
+D
