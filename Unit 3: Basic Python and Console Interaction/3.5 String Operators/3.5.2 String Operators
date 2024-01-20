@@ -1,0 +1,40 @@
+Question: 1
+Which of the following Python programs will not run?
+x = 4
+y = 5
+print(x + y)
+
+
+x = 4
+y = "hi"
+print(x + y) (Correct Answer)
+
+x = 4
+y = 5.5
+print(x + y)
+
+x = 4
+
+print(x + 5)
+
+
+Question: 2
+Which of the following is NOT a program that will produce the following output?
+
+hellohellohello
+
+var = "hello" * 3
+print(var)
+
+var = "hello" + "hello" + "hello"
+print(var)
+
+var = "hello"
+print(var)
+print(var)
+print(var) (Correct Answer)
+
+In the following code, assume the user enters 3.
+num_times = int(input("How many times?: "))
+var = "hello" * num_times
+print(var)
