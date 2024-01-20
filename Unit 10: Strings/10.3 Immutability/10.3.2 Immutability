@@ -1,0 +1,16 @@
+Question: 1
+What does your answer in question 1 mean?
+Strings in Python can be modified and replaced.
+
+Strings in Python can be modified, but not replaced.
+
+Strings in Python can be replaced, but not modified. (Correct Answer)
+
+Strings in Python can be neither replaced nor modified.
+
+
+Question: 2
+Which word applies to strings in Python?
+mutable
+
+immutable (Correct Answer)
