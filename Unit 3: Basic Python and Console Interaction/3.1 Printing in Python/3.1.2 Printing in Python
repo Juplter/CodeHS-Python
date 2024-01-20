@@ -1,0 +1,27 @@
+Question: 1
+What does the following Python code display?
+
+print("Hello")
+print("World")
+
+Hello
+World (Correct Answer)
+
+HelloWorld
+
+Hello World
+
+Hello
+
+World
+
+
+Question: 2
+Which Python code segment will display “Hello, world!” on the screen?
+display Hello, world!
+
+print("Hello, world!") (Correct Answer)
+
+print "Hello, world!"
+
+"Hello, world!"
