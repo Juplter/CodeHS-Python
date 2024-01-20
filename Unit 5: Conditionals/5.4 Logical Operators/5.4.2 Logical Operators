@@ -1,0 +1,23 @@
+Question: 1
+Which of the following conditions tell me to sleep if my alarm did not go off (alarm = False) and I’m tired (tired = True)?
+if alarm and tired:
+    sleep
+
+if not alarm or tired:
+    sleep
+
+if not alarm and tired: (Correct Answer)
+    sleep
+
+if not alarm and not tired:
+    sleep
+
+Question: 2
+Which of the following is not a logical operator in Python?
+and
+
+or
+
+not
+
+because (Correct Answer)
