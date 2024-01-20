@@ -1,0 +1,5 @@
+name = "CodeHS-Solutions"
+age = "null"
+
+print(name)
+print(age)
