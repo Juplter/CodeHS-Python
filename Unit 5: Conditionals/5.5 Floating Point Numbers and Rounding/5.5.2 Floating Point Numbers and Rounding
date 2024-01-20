@@ -1,0 +1,20 @@
+Question: 1
+Which of the following evaluates to the variable x rounded to two decimal places?
+round(x, 2) (Correct Answer)
+
+round(2, x)
+
+round(x), 2
+
+round(2), x
+
+
+Question: 2
+Which of the following values is rounded to 3 decimal places?
+2.3
+
+3.000 (Correct Answer)
+
+3.0001
+
+3
