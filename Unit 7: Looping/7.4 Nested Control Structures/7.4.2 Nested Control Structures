@@ -1,0 +1,47 @@
+Question: 1
+What does the following program print?
+
+for i in range(2):
+    for j in range(2):
+        print(i + j)
+
+0
+1
+1
+2 (Correct Answer)
+
+0112
+
+0
+1
+0
+1
+
+0101
+
+
+Question: 2
+Which of the following does not properly nest control structures?
+for i in range(3):
+    for j in range(6):
+        print(j)
+
+for i in range(3):
+    if i > 2:
+        break
+    else:
+        print(i)
+
+count = 0
+if count < 10:
+    for i in range(3):
+        print(count)
+    count = count + 1
+
+    
+count = 10
+for i in range(3): (Correct Answer)
+    if count > 0:
+        print(i)
+else:
+    print(count)
