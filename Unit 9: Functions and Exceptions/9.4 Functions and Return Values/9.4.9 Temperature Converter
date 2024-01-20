@@ -1,0 +1,21 @@
+# Write your function for converting Celsius to Fahrenheit here.
+# Make sure to include a comment at the top that says what
+# each function does!
+def celsius_to_fahrenheit(x):
+    return ((1.8 * x) + 32)
+
+# Now write your function for converting Fahrenheit to Celsius.
+def fahrenheit_to_celsius(x):
+    return ((x - 32) /1.8)
+
+# Now change 0C to F:
+print(celsius_to_fahrenheit(0))
+
+# Change 100C to F:
+print(celsius_to_fahrenheit(100))
+    
+# Change 40F to C:
+print(fahrenheit_to_celsius(40))
+
+# Change 80F to C:
+print(fahrenheit_to_celsius(80))
