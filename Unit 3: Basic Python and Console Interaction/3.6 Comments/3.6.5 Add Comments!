@@ -1,0 +1,18 @@
+"""
+    This program finds the first, middle, and last name
+    of a user to form their full name.
+"""
+
+
+# Finds their first name.
+first_name = input("Enter your first name: ")
+
+# Finds their middle name, if applicable.
+middle_name = input("Enter your middle name: ")
+
+# Finds their last name.
+last_name = input("Enter your last name: ")
+
+# This code combines the user's first, middle, and last name.
+full_name = first_name + " " + middle_name + " " + last_name
+print(full_name)
