@@ -1,0 +1,33 @@
+"""
+    This program makes Karel build two towers.
+"""
+
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def build_tower():
+    put_ball()
+    turn_left()
+    move()
+    put_ball()
+    move()
+    put_ball()
+
+def scaledown_tower():
+    turn_right()
+    move()
+    turn_right()
+    move()
+    move()
+    turn_left()
+    
+# Program begins here:
+move()
+build_tower()
+scaledown_tower()
+move()
+build_tower()
+move()
+turn_right()
