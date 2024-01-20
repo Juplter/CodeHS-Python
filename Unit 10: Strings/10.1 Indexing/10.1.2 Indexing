@@ -1,0 +1,28 @@
+Question: 1
+Which of the following prints E?
+my_string = "ABCDE"
+print(my_string[-1]) (Correct Answer)
+
+my_string = "ABCDE"
+print(my_string[5])
+
+my_string = "ABCDE"
+print(my_string[-5])
+
+my_string = "ABCDE"
+print(my_string(5))
+
+
+Question: 2
+Which of the following prints the letter A?
+my_string = "ABCDE"
+print(my_string[1])
+
+my_string = "ABCDE"
+print(my_string(0))
+
+my_string = "ABCDE"
+print(my_string(1))
+
+my_string = "ABCDE"
+print(my_string[0]) (Correct Answer)
