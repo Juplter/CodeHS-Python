@@ -1,0 +1,21 @@
+Question: 1
+Which of the following is the correct way to have Karel paint a red square using the paint function?
+paint_red()
+
+paint_color.red()
+
+
+paint(color["red"]) (Correct Answer)
+
+paint(color[red])
+
+
+Question: 2
+What is a parameter?
+Another name for a function
+
+Input into a function (Correct Answer)
+
+Output from a function
+
+A function that paints a square in Karel’s grid world
