@@ -1,0 +1,4 @@
+def sum(x, y):
+    return(x+y)
+    
+print(sum(32,978))
