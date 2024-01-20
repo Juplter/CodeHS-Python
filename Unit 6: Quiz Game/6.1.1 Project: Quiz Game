@@ -1,0 +1,222 @@
+'''
+    Multiple-Choice Quiz Game Program
+'''
+# Area Selection
+while True:
+    print("Multiple-Choice Quiz Game")
+    
+    user_score = 0
+    print("Which area do you want your questions to be selected from. Enter using the number shown.")
+    print("1) Time Zones")
+    print("2) Basic Math")
+    print("3) Python")
+    print("4) X to stop quiz")
+    area = input("Select an option: ")  
+    
+    if(area == "1" or "Time Zones"):
+        print("Time Zones Questions: ")
+    elif(area == "2" or "Basic Math"):
+        print("Basic Math Questions: ")
+    elif(area == "3" or "Python"):
+        print("Python Questions: ")
+    elif(area == "x" or "X" or "4"):
+        break
+    else:
+        print("Please choose a valid option.")
+        break
+    print("Only type the letter choice with lowercase symbols.")
+  
+    
+# Time Zone Questions 
+    if(area == "1"):
+        first_attempt = True
+        while True:
+            print("How many U.S. states have 2 time zones?")
+            
+            print("(a) 5")
+            print("(b) 10")
+            print("(c) 15")
+            print("(d) 20")
+            
+            tz1 = input("> ")
+            
+            if(tz1 == "c"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        first_attempt = True  
+        while True:  
+            print("Which is the correct abbreviation for the Coordinated Universal Time?")
+            
+            print("(a) UTC")
+            print("(b) CUT")
+            print("(c) TUC")
+            print("(d) CTU")
+            
+            tz2 = input("> ")
+            
+            if(tz2 == "a"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        first_attempt = True
+        while True:   
+            print("How many time zones does France have?")
+            
+            print("(a) 3")
+            print("(b) 6")
+            print("(c) 9")
+            print("(d) 12")
+            
+            tz3 = input("> ")
+            
+            if(tz3 == "d"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        print("Your Score: " + str(user_score) + "/3")
+    
+            
+    # Basic Math Questions       
+    if(area == "2"):
+        first_attempt = True
+        while True:
+            print("What is the derivative of (x + 1) sin x?")
+            
+            print("(a) (x + 1) tan x")
+            print("(b) sin x + (x + 1) cos x")
+            print("(c) sin x")
+            print("(d) (x + 2) cos x")
+            
+            bm1 = input("> ")
+            
+            if(bm1 == "b"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        first_attempt = True
+        while True:
+            print("As per gradient function, ∇ (f + g) = ?")
+            
+            print("(a) ∇ f + ∇ g")
+            print("(b) ∇ f - ∇ g")
+            print("(c) ∇ f - ∇ g")
+            print("(d) ∇ f. *  -∇ g")
+            
+            bm2 = input("> ")
+            
+            if(bm2 == "a"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        first_attempt = True
+        while True:    
+            print("Integral of the constant function f(x) = k is:")
+            
+            print("(a) C")
+            print("(b) 0")
+            print("(c) k+C")
+            print("(d) kx+C")
+            
+            bm3 = input("> ")
+            
+            if(bm3 == "d" or "(d)"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        print("Your Score: " + str(user_score) + "/3")
+            
+    
+    # Python Questions        
+    if(area == "3"):
+        first_attempt = True
+        while True:
+            print("What is the most dangerous python")
+            
+            print("(a) African Rock Python")
+            print("(b) Burmese Python")
+            print("(c) Brongersmai Python")
+            print("(d) Angolan Python")
+            
+            py1 = input("> ")
+            
+            if(py1 == "a"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        first_attempt = True
+        while True:    
+            print("What order do pythons belong to?")
+            
+            print("(a) Serpentes")
+            print("(b) Reptilia")
+            print("(c) Squamata")
+            print("(d) Toxicofera")
+            
+            py2 = input("> ")
+            
+            if(py2 == "c"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        first_attempt = True
+        while True:   
+            print("How do pythons differ from anacondas and boas.")
+            
+            print("(a) They are smaller")
+            print("(b) They are less aquatic")
+            print("(c) Only pythons live in Florida")
+            print("(d) All of the options aren't true about pythons")
+            
+            py3 = input("> ")
+            
+            if(py3 == "b"):
+                print("Correct!")
+                if(first_attempt == True): 
+                    user_score += 1
+                break
+            else:
+                print("Incorrect.")
+                first_attempt = False
+        
+        print("Your Score: " + str(user_score) + "/3")
