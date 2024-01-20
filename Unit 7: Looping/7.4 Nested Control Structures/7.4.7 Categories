@@ -1,0 +1,7 @@
+for i in range(3):
+    items = ""
+    category = input("Enter a category: ")
+    for i in range(3):
+        item = input("Enter something in that category: ")
+        items = items + " " + item
+    print(category + ":" + items)
