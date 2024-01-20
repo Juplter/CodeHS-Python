@@ -1,0 +1,15 @@
+Question: 1
+If I am using the following condition in my program:
+
+while True:
+which keyword should I use to make sure I don’t create an infinite loop?
+
+break (Correct Answer)
+
+continue
+
+Question: 2
+Which Python keyword skips back to the beginning of a loop?
+break
+
+continue (Correct Answer)
