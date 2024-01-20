@@ -1,0 +1,25 @@
+Question: 1
+Which of the following code samples correctly creates a function that takes a single parameter and prints it?
+def print_number(x): (Correct Answer)
+    print(x)
+
+def print_number():
+    print(parameter)
+
+def print_number():
+    print(x)
+
+def print(x)
+
+
+Question: 2
+Which of the following code samples correctly passes the number 10 as an argument to the function print_number?
+print_number(10) (Correct Answer)
+
+print_number()
+print 10
+
+10(print_number)
+
+print print_number
+print 10
