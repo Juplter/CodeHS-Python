@@ -1,1 +1,4 @@
+name = "CodeHS-Solutions"
+age = "null"
 
+print("Hello, my name is " + name + ", and I am " + str(age) + " years old.")
