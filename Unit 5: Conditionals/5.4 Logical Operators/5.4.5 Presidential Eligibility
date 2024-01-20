@@ -1,0 +1,8 @@
+user_age = int(input("What is your age?: "))
+country_of_origin = bool(input("Born in the U.S.? (Yes/No): "))
+years_of_residency = int(input("Years of Residency: "))
+
+if((user_age >= 35) and (country_of_origin == true) and (years_of_residency >= 14)):
+    print("You are eligible to run for president.")
+else:
+    print("You are not eligible to run for president.")
