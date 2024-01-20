@@ -1,0 +1,18 @@
+Question: 1
+Which of the following best describes the main purpose of comments?
+Comments create better spacing in programs.
+
+Comments describe your program so other people can read it more easily. (Correct Answer)
+
+Comments warn the people running the program about potential problems with the program.
+
+
+Question: 2
+Which of the following is NOT a valid type of comment in Python?
+%% This is a comment (Correct Answer)
+
+# This is a comment
+
+"""
+This is a comment
+"""
