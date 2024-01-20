@@ -1,0 +1,21 @@
+"""
+This program asks the user for three ingredients,
+three amounts, and a number of servings, and
+determines how much of each ingredient is needed
+to serve the specified number of servings.
+"""
+
+# Write program here...
+
+ing_1 = str(input("Ingredient 1: "))
+amount_1 = input("Ounces of " + ing_1 + ": " )
+ing_2 = str(input("Ingredient 2: "))
+amount_2 = input("Ounces of " + ing_2 + ": " )
+ing_3 = str(input("Ingredient 3: "))
+amount_3 = input("Ounces of " + ing_3 + ": " )
+
+servings = int(input("Number of Servings: "))
+
+print("Total number of " + ing_1 + ": " + str(amount_1 * servings))
+print("Total number of " + ing_2 + ": " + str(amount_2 * servings))
+print("Total number of " + ing_3 + ": " + str(amount_3 * servings))
