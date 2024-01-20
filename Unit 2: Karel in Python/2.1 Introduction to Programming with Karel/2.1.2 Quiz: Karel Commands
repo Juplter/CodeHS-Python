@@ -1,0 +1,18 @@
+Which of these is a valid Karel command?
+move
+MOVE
+
+Correct Answer:
+move()
+
+move(1)
+
+
+Which one of these is NOT a command that Karel knows?
+Turn Left
+
+Correct Answer:
+Turn Right
+
+Move Forward
+Put Down a Ball
