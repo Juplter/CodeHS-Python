@@ -1,0 +1,24 @@
+Question: 1
+Which of the following keywords are relevant to exceptions in Python?
+I. def
+II. except
+III. try
+
+II and III (Correct Answer)
+
+II only
+
+I and II
+
+none of the above
+
+
+Question: 2
+What type of error occurs when a program is expecting an integer value and the user enters a string?
+NumberError
+
+ValueError (Correct Answer)
+
+InputError
+
+ZeroDivisionError
