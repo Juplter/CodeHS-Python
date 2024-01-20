@@ -1,0 +1,47 @@
+Question: 1
+In which namespace is the variable ‘x’ defined in the following program?
+
+x = 10
+
+def add_nums():
+    y = 2
+    z = x + y
+    print(z)
+
+Function namespace
+
+Global namespace (Correct Answer)
+
+Object namespace
+
+Class namespace
+
+
+Question: 2
+Consider this code snippet.
+
+x = 10
+
+def add_nums():
+    y = 2
+    z = x + y
+    print(z)
+Which of the following additional functions could be safely added to this code, without causing an error?
+
+def subtract_nums():
+    z = x - y
+    print(z)
+
+def subtract_nums():
+    z = z - x
+    print(z)
+
+def subtract_nums(): (Correct Answer)
+    y = 5
+    z = x - y
+    print(z)
+
+def subtract_nums():
+    z = y
+    z = x - y
+    print(z)
