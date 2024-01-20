@@ -1,0 +1,24 @@
+Question: 1
+What does len("hello") evaluate to?
+“hello”
+
+4
+
+“—–”
+
+5 (Correct Answer)
+
+
+Question: 2
+Which of the following programs DOES NOT PRINT the first five letters of the alphabet, each on its own line?
+my_string = "abcde"
+for letter in range(len(my_string)): (Correct Answer)
+    print(letter)
+
+my_string = "abcde"
+for letter in my_string:
+    print(letter)
+
+my_string = "abcde"
+for i in range(len(my_string)):
+    print(my_string[i])
