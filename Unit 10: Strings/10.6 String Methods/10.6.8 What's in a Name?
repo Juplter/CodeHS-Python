@@ -1,0 +1,6 @@
+# fill in the arguments and function body
+def name_contains(name, letter):
+    if letter in name:
+        return True
+    else:
+        return False
