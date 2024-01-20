@@ -1,0 +1,12 @@
+# This program makes Karel decorate the fence.
+
+while(front_is_clear()):
+    move()
+    
+turn_left()
+while(front_is_clear()):
+    if right_is_blocked():
+        put_ball()
+    move()
+
+put_ball()
