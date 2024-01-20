@@ -1,0 +1,35 @@
+Question: 1
+Which of the following is an example of a ‘runtime error’?
+
+I. Karel crashing into a wall
+II. Leaving a colon off the end of a function definition
+III. Using the wrong syntax in an if/else statement
+IV. Not closing all open parenthesis
+
+I (Correct Answer)
+
+I and III
+
+II and IV
+
+I-IV, all
+
+
+Question: 2
+If the following program is supposed to put down three tennis balls, where is the logic error?
+
+1 def place_three_ball():
+2   for i in range(4):
+3        put_ball()
+4
+5 placeThreeBalls()
+
+
+Line 1
+
+Line 2 (Correct Answer)
+
+Line 3
+
+Line 5
+
