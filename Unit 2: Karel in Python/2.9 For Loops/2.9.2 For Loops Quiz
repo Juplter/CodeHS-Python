@@ -1,0 +1,19 @@
+Question: 1
+What is the best way for Karel to move 10 times?
+move()
+move()
+move()
+move()
+move()
+move()
+move()
+move()
+move()
+move()
+
+for i in range(10): (Correct Answer)
+    move()
+
+move(10)
+
+move10()
