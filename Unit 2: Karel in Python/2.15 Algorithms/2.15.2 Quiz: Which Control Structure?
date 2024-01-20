@@ -1,0 +1,81 @@
+Question: 1
+You need to write a program where Karel will take a ball if there is a ball present, otherwise Karel should put down a ball.
+Which control structure do you need to use?
+For Loop
+
+While Loop
+
+If Statement
+
+If/Else statement (Correct Answer)
+
+None of these
+
+if balls_present():
+ take_ball()
+else:
+ put_ball()
+
+
+Question: 2
+You need to write a program that has Karel move 6 times and then put a ball.
+Which control structure do you need to use?
+For loop (Correct Answer)
+
+While Loop
+
+If Statement
+
+If/Else statement
+
+None of these
+
+for i in range(6):
+ move()
+put_ball()
+
+
+Question: 3
+You need to write a program that has Karel take all the tennis balls if there are any where Karel is standing.
+Karel should end up with no tennis balls on that spot.
+Which control structure do you need to use?
+For Loop
+
+While Loop (Correct Answer)
+
+If Statement
+
+If/Else Statement
+
+None of these
+
+while balls_present():
+ take_ball()
+
+
+Question: 4
+You need to write a program that has Karel put down a tennis ball if the world has dimensions of 1x1.
+Which control structure do you need to use?
+For Loop
+
+While Loop
+
+If Statement (Correct Answer)
+
+If/Else statement
+
+None of these
+
+
+Question: 5
+You need to write a program that has Karel move one time if the front is clear, but if it isn’t clear, Karel will do nothing.
+Which control structure do you need to use?
+For Loop
+
+While Loop
+
+If Statement (Correct Answer)
+
+If/Else statement
+
+None of these
