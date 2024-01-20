@@ -1,0 +1,37 @@
+High Level of Abstraction:
+Prepare Food
+Eat Breakfast
+
+Go to bus stop.
+Ride bus.
+Reach school.
+
+
+Lower Level of Abstraction:
+Preparing milk
+Preparing cereal
+Putting both items into bowl.
+Eating Breakfast
+
+Get backpack ready.
+Go to bus stop.
+Get on the bus.
+Find a seat.
+Ride bus to school.
+
+
+Lowest Level of Abstraction:
+Preparing milk
+Preparing cereal
+Get bowl and spoon.
+Putting both items into bowl.
+Consume breakfast.
+Put dishes away.
+
+Get backpack ready.
+Put on shoes.
+Go to bus stop.
+Get on the bus.
+Find a seat.
+Ride bus to school.
+Reach school.
