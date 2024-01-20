@@ -1,0 +1,4 @@
+# update the function body to return `string`, but with the character at
+# `index` replaced by `letter`
+def replace_at_index(string, index, string_2):
+    return string[:index] + string_2 + string[index+1:]
