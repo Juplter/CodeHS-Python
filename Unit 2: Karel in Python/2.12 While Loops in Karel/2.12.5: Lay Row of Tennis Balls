@@ -1,0 +1,10 @@
+# Write a program to lay a row of tennis balls
+# across first street. Make sure to test your
+# program on multiple worlds.
+
+# This while loop creates a path of balls.
+while front_is_clear():
+    put_ball()
+    move()
+    
+put_ball()
