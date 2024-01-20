@@ -1,0 +1,51 @@
+"""
+ This program has Karel paint a checkerboard
+"""
+def rotate():
+    if facing_east():
+        turn_left()
+        move()
+        turn_left()
+    else:
+        turn_right()
+        move()
+        turn_right()
+    
+for i in range(7):    
+    paint(color["black"])
+    move()
+    paint(color["red"])
+    move()
+    paint(color["black"])
+    move()
+    paint(color["red"])
+    move()
+    paint(color["black"])
+    move()
+    paint(color["red"])
+    move()
+    paint(color["black"])
+    move()
+    paint(color["red"])
+    rotate()
+
+paint(color["black"])
+move()
+paint(color["red"])
+move()
+paint(color["black"])
+move()
+paint(color["red"])
+move()
+paint(color["black"])
+move()
+paint(color["red"])
+move()
+paint(color["black"])
+move()
+paint(color["red"])
+
+turn_left()
+while(front_is_clear()):
+    move()
+turn_left()
