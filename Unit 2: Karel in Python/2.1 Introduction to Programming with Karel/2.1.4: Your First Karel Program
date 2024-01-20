@@ -1,0 +1,5 @@
+move()
+move()
+move()
+move()
+take_ball()
