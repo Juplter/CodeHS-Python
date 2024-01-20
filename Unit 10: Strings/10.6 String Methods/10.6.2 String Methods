@@ -1,0 +1,38 @@
+Question: 1
+If I’m getting input from a user and having their answer dictate my if/else statement, like so:
+
+happy = input("Are you happy? (yes/no): ")
+if happy == "yes":
+    draw_smile()
+elif happy == "no":
+    draw_frown()
+else:
+    print("Invalid response")
+Which string method can I use to make sure that the phrase ‘invalid response’ only displays if the user has typed something other than ‘yes’ or ‘no’, without paying attention to their capitalization?
+
+upper
+
+lower (Correct Answer)
+
+swapcase
+
+strip
+
+
+Question: 2
+Which of the following functions prints 3, and nothing else?
+s = "hello"
+x = s.find("l")
+print(x)
+
+s = "banana"
+x = s.find("a")
+print(x)
+
+s = "hello"
+for i in range(len(s)):
+    print(i)
+
+s = "apple"
+x = s.find("l") (Correct Answer)
+print(x)
