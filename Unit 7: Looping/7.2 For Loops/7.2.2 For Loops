@@ -1,0 +1,24 @@
+Question: 1
+Which of the following best describes the purpose of a for loop?
+A for loop is for doing something an indeterminate number of times.
+
+A for loop is doing something an infinite number of times.
+
+A for loop is for doing something a fixed number of times. (Correct Answer)
+
+A for loop is for doing something three times.
+
+
+Question: 2
+Which of the following programs prints ten lines?
+for i in range(10):
+    print("hi") (Correct Answer)
+
+for i = 1 to 10:
+    print("hi")
+
+for i in 1 - 10:
+    print("hi")
+
+for i from 0 to 9:
+    print("hi")
