@@ -1,0 +1,28 @@
+Question: 1
+Which of the following functions successfully returns double the variable ‘number’?
+def my_function(number): (Correct Answer)
+    return number*2
+
+def my_function(number*2):
+    return
+
+def my_function():
+    return number
+
+def my_function(number):
+    number*2
+
+
+Question: 2
+Which of the following functions successfully returns the number 10?
+def my_function():
+    10
+
+def my_function(10):
+    return
+    
+def my_function(): (Correct Answer)
+    return 10
+
+def my_function():
+    print(10)
