@@ -1,0 +1,9 @@
+Question: 1
+What commands does SuperKarel know that regular Karel does not?
+turn_left() and jump()
+
+turn_right() and jump()
+
+turn_around() and turn_right() (Correct Answer)
+
+turn_around() and jump()
