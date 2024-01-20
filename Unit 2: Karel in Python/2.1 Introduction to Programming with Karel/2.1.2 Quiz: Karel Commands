@@ -1,4 +1,4 @@
-Question 1:
+Question: 1
 Which of these is a valid Karel command?
 move
 
@@ -9,7 +9,7 @@ move() (Correct Answer)
 move(1)
 
 
-Question 2:
+Question: 2
 Which one of these is NOT a command that Karel knows?
 Turn Left
 
