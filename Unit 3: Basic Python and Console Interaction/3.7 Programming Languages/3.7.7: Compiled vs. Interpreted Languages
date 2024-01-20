@@ -1,0 +1,8 @@
+    Compiled and interpreted languages are different because
+compiled languages translates the entire code at once, while
+interpreted languages translates the code per line.
+
+    Compilers are faster in execution and can be easier to
+identify bugs, but the additional steps are time-consuming.
+Meanwhile, interpreters are slower in execution, are easier
+to test, and are more readable.
