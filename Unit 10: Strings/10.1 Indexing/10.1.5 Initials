@@ -1,0 +1,5 @@
+# fill in the body of this function!
+def initials(first, last):
+    first_initial = first[0]
+    last_initial = last[0]
+    return first_initial + "." + last_initial + "."
