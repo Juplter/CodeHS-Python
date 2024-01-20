@@ -1,0 +1,57 @@
+Question: 1
+Will the following program move Karel one space, put down three tennis balls, then move forward and put down three more tennis balls?
+
+def tennis_balls():
+    for i in range(3):
+        if no_balls_present():
+            put_ball()
+        else:
+            take_ball()
+
+move()
+tennis_balls()
+move()
+tennis_balls()
+
+
+Yes, because it is using the tennis_balls() function.
+
+
+No, because the tennis_balls() function is looping the wrong number of times.
+
+
+Yes, because the move() command is being called outside of the function.
+
+Correct Answer
+No, because the tennis_balls() function has an incorrect if/else statement.
+
+Great work!
+
+
+ Correct
+Question: 2
+The following code contains an error. What line is it on?
+
+1  def turn_right():
+2       turn_left()
+3       turn_left()
+4       turn_Left()
+5
+6  move()
+7  turn_left()
+8  move()
+9  turn_right()
+10 move()
+11 move()
+
+
+line 3
+
+Correct Answer
+line 4
+
+
+line 5
+
+
+line 7
