@@ -1,0 +1,31 @@
+Question: 1
+What is the type of the variable x in the following Python program?
+
+x = input("Enter something: ")
+
+string (Correct Answer)
+
+integer
+
+float
+
+The type cannot be determined.
+
+
+Question: 2
+Suppose you run the following Python program:
+
+x = input("Enter some text: ")
+print(x)
+Python
+While the program is running, after the prompt has been printed, the user types the following and presses Enter:
+Delaware ratified the U.S. Constitution in 1787.
+What does the program print?
+
+Delaware ratified the U.S. Constitution in 1787. (Correct Answer)
+
+Delaware ratified the U.S. Constitution in
+
+Delaware
+
+(The program does not print anything.)
