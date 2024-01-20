@@ -1,0 +1,35 @@
+Question: 1
+Why do we use if statements in Python?
+To break out of some block of code
+
+To do something only if a condition is true (Correct Answer)
+
+To do something while a condition is true
+
+To repeat something for a fixed number of times
+
+
+Question: 2
+Which general if statement definition is written correctly?
+
+A
+for condition:
+    # code
+B
+if condition:
+    # code
+C
+if i in range(COUNT): 
+    #code
+D
+if false:
+     # code
+
+
+A
+
+B (Correct Answer)
+
+C
+
+D
