@@ -1,0 +1,10 @@
+    Dynamically typed and statically typed languages compare
+and contrast due to their use of variables. They both contain
+and use variables to store values. However, dynamically typed
+languages allow variables to hold different types of values,
+and statically typed languages must explicitly declare
+and maintain the type of a variable.
+
+An example of a dynamically typed language is Python, while
+a statically typed language is Java. Both types of languages
+can be better in certain scenarios.
