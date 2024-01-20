@@ -1,0 +1,8 @@
+print("Welcome to Mad Libs")
+
+noun = input("Enter a noun: ")
+adjective = input("Enter an adjective: ")
+verb = input("Enter a verb: ")
+
+print("Here's your Mad Libs story: ")
+print("In a distant city, there was a " + noun + " who had a " + adjective + " kitten. They loved to " + verb + " every day.")
