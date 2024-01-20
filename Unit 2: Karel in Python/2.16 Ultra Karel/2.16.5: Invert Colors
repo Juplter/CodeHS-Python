@@ -1,0 +1,14 @@
+"""
+This program has Karel invert colors
+"""
+
+def invert_color():
+    if color_is(color["red"]):
+        paint(color["blue"])
+    else:
+        paint(color["red"])   
+    if front_is_clear():
+        move()
+        
+for i in range(10):
+    invert_color()
