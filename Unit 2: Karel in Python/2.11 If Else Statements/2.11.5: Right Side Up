@@ -1,0 +1,6 @@
+if facing_south():
+    turn_left()
+else:
+    if facing_west():
+        turn_right()
+        turn_right()
