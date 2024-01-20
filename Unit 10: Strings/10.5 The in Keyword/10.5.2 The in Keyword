@@ -1,0 +1,30 @@
+Question: 1
+What does the following program print?
+
+x = "ab"
+y = "banana"
+print(x in y)
+
+True
+
+False (Correct Answer)
+
+0
+
+“ba”
+
+
+Question: 2
+What does the following program print?
+
+print("a" in "banana")
+
+True (Correct Answer)
+
+False
+
+
+1
+
+
+“aaa”
