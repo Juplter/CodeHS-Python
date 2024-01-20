@@ -1,0 +1,39 @@
+Question: 1
+Each of the following answer choices describes a basketball game.
+Which answer choice describes the game with the lowest level of abstraction?
+The Warriors won by 10 points.
+
+The Warriors had an early lead, but were down by 4 at halftime. They tied it up in the 4th quarter and the game went into overtime. They won by 10 points in overtime.
+
+First, Steph Curry jumped in the air and grabbed the ball. Then he dribbled it three times and passed it to Klay Thompson…
+
+First, Steph Curry flexed his left and right quad muscles at the exact same time, then he flexed each muscle in his fingers… (Correct Answer)
+
+
+Question: 2
+Karel needs to pick up a pile of tennis balls.
+Which of the following program functions solves the problem at the highest level of abstraction?
+
+move()
+move()
+turn_left()
+turn_left()
+turn_left()
+move()
+take_ball()
+take_ball()
+
+move_twice()
+turn_left()
+turn_left()
+turn_left()
+move()
+take_pile()
+
+move_twice()
+turn_right()
+move()
+take_pile()
+
+move_to_pile()
+take_pile()        (Correct Answer)
