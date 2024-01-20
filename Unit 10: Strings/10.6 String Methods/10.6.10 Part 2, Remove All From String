@@ -1,0 +1,10 @@
+def remove_all_from_string(word, letter):
+    length = len(letter)
+    while letter in word:
+        index = word.find(letter)
+        word = word[:index] + word[index + length:]
+    return word
+    
+word = input("Enter a string: ")
+letter = input("Enter a string: ")
+print(remove_all_from_string(word, letter))
