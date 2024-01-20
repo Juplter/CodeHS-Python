@@ -1,0 +1,6 @@
+x = 0
+for i in range(3):
+   x = x + int(input("What was your test score?: "))
+
+average = x/3
+print(average)
