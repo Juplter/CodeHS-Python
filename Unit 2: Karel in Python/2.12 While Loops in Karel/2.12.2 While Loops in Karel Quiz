@@ -1,0 +1,26 @@
+Question: 1
+Why do we use while loops in Python?
+To break out of some block of code
+
+To do something if a condition is true
+
+To repeat some code while a condition is true (Correct Answer)
+
+To repeat something for a fixed number of times
+
+
+Question: 2
+Which general while loop definition is written correctly?
+
+ while x is true:
+        # code
+
+if  i<5:
+    #code
+
+while I in range(5):
+    # code
+    
+
+while condition:
+    # code        (Correct Answer)
