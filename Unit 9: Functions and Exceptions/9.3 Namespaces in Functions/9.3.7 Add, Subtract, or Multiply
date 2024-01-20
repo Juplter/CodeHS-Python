@@ -1,0 +1,21 @@
+def add():
+    print(str(num1) + " + " + str(num2) + " = " + (str(num1 + num2)))
+    
+def subtract():
+    print(str(num1) + " - " + str(num2) + " = " + (str(num1 - num2)))
+    
+def multiply():
+    print(str(num1) + " * " + str(num2) + " = " + (str(num1 * num2)))
+
+
+num1 = int(input("What is the first number?: "))
+num2 = int(input("What is the second number?: "))
+
+operation = input("Choose an operation (add, subtract, multiply): ")
+
+if(operation == "add"):
+    add()
+elif(operation == "subtract"):
+    subtract()
+elif(operation == "multiply"):
+    multiply()
