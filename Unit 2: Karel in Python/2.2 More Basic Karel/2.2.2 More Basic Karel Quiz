@@ -1,0 +1,65 @@
+What is a street in a Karel world?
+Correct Answer:
+A row
+
+A column
+
+A single point
+
+Karel’s position
+
+Correct! A street is a row.
+
+
+Question: 2
+What is an avenue in a Karel world?
+A row
+
+Correct Answer:
+A column
+
+A single point
+
+Karel’s position
+
+Correct! An avenue is a column.
+
+
+Question: 3
+If Karel starts at Street 1 and Avenue 3 facing East, what street (row) and avenue (column) will Karel be on after this code runs?
+
+move()
+move()
+move()
+turn_left()
+move()
+
+Street 1 and Avenue 3
+
+Street 4 and Avenue 4
+
+Correct Answer:
+Street 2 and Avenue 6
+
+Street 6 and Avenue 2
+
+Excellent! The first 3 move() commands will bring Karel to Avenue 6. Then, since Karel turns, the last move will bring him to Street 2.
+
+
+Question: 4
+If Karel is facing North and the code
+
+turn_left()
+turn_left()
+runs, which direction is Karel facing now?
+
+North
+
+Correct Answer:
+South
+
+East
+
+West
+
+Great job! After the first command, Karel will face West and after the second command Karel will face South.
