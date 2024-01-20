@@ -1,0 +1,45 @@
+Question: 1
+Assume you are writing a program, and you have a boolean variable called b, defined like so:
+
+b = True
+Pick the correct if statement to follow the code above. The if statement should be correct Python, and the body of the if statement should only run if b is True.
+
+if b:
+    print("b is True!") (Correct Answer)
+Python
+
+if b:
+print("b is True!")
+Python
+
+if True:
+    print(b)
+Python
+
+if True:
+print(b)
+Python
+
+
+Question: 2
+Which of the following programs will run but will not print anything?
+x = True
+if x:
+    print("hi")
+Python
+
+if False:
+    print("hi") (Correct Answer)
+Python
+
+x = False
+if x:
+    print("hi")
+else:
+    print("hello")
+Python
+
+if True:
+    print("hi")
+else:
+   print("hello")
