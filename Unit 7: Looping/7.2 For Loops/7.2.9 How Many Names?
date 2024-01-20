@@ -1,0 +1,11 @@
+names = int(input("How many names do you have?: "))
+middle_names = names - 2
+middle_name = ""
+
+first_name = (input("What is your first name?: "))
+for i in range(middle_names):
+    middle_name += (input("What is your middle name?: ")) + " "
+last_name = (input("What is your last name?: "))
+
+full_name = first_name + " " + middle_name + last_name
+print(full_name)
