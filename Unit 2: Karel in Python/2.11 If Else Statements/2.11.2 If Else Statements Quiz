@@ -1,0 +1,31 @@
+Question: 1
+What does an if/else statement look like in Python?
+if condition:
+    # code
+
+if condition:
+    # code
+else condition:
+    # code
+
+if condition:
+    # code
+if condition:
+    # code
+    
+
+if condition:
+    # code
+else:
+    # code    (Correct Answer)
+
+
+Question: 2
+Why do we use if/else statements in Python?
+To repeat something for a fixed number of times
+
+To do something if a condition is true and do something else if the condition is false (Correct Answer)
+
+To break out of some block of code
+
+To repeat something while a condition is true
