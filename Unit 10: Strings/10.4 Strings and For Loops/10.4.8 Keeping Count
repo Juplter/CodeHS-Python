@@ -1,0 +1,7 @@
+# update this function to return the number of times `second` appears in `first`!
+def count_occurrences(word, character):
+    occurrences = 0
+    for letter in word:
+        if(letter == character):
+            occurrences += 1
+    return occurrences
