@@ -1,0 +1,4 @@
+def multiplier(x,y):
+    print(x*y)
+    
+multiplier(2791,17268)
