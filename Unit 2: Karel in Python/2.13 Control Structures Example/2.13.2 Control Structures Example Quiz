@@ -1,0 +1,27 @@
+Question: 1
+What do we use control structures for in Python?
+Control the flow of the program; how the commands execute. (Correct Answer)
+
+Start our Python program
+
+Store information for later
+
+Teach Karel new commands
+
+
+Question: 2
+Which of the below are examples of control structures?
+
+(I)   if
+(II)  if/else
+(III) while
+(IV)  for
+
+
+I only
+
+I and II only
+
+III and I only
+
+I, II, III, and IV (Correct Answer)
