@@ -1,0 +1,15 @@
+my_float = 3.3312
+
+# Your code here...
+
+while True:
+    number = float(input("Enter a guess: "))
+    rounded_num = round(number, 2)
+    rounded_float = round(my_float, 2)
+    if(rounded_num == rounded_float):
+        print("Correct!")
+        break
+    elif(rounded_num < rounded_float):
+        print("Too low!")
+    elif(rounded_num > rounded_float):
+        print("Too high!")
