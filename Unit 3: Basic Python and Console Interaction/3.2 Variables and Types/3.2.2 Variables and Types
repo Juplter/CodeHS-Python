@@ -1,0 +1,36 @@
+Question: 1
+What type is the following variable?
+
+x = "Hi there"
+
+float
+
+integer
+
+boolean
+
+string (Correct Answer)
+
+
+Question: 2
+What does the following Python program print?
+
+x = "I am"
+y = 6
+z = "feet tall"
+
+print(x)
+print(y)
+print(z)
+
+I am 6 feet tall
+
+I am6feet tall
+
+I am
+6
+feet tall (Correct Answer)
+
+x
+y
+z
