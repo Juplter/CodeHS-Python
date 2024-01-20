@@ -1,0 +1,31 @@
+# This has karel build two towers, with three balls in each tower.
+# Should be the same program with turn_right and turn_around removed.
+"""
+    This program makes Karel build two towers.
+"""
+# This creates a tower.
+def build_tower():
+    put_ball()
+    turn_left()
+    move()
+    put_ball()
+    move()
+    put_ball()
+
+# This makes Karel go down the tower.
+def scaledown_tower():
+    turn_right()
+    move()
+    turn_right()
+    move()
+    move()
+    turn_left()
+    
+# Program begins here:
+move()
+build_tower()
+scaledown_tower()
+move()
+build_tower()
+move()
+turn_right()
