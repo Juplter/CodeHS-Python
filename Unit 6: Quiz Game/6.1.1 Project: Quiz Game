@@ -1,6 +1,7 @@
 '''
     Multiple-Choice Quiz Game Program:
     This application creates a trivia game.
+    A challenge is to condense this code to become under 70 lines. Hint: use arrays and more complex loops.
 '''
 
 # Area Selection
