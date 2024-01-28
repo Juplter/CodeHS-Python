@@ -1,0 +1,16 @@
+Write your pseudocode here.
+
+The player must have the option to keep rolling or to 
+bank their points. 
+    If the player keeps rolling then the program must
+    do a function to get a random integer.
+        If the roll is 2-6, then they get the amount of
+        points rolled
+        
+        If the roll is 1, then they loss all of their rolled
+        points.
+        
+    If the player decides against rolling, then their rolled
+    points are converted into bank points.
+    
+If the player obtains over 100 points, then the game is over.
