@@ -1,0 +1,38 @@
+# Write your code here
+import random
+
+bank_score = 0
+x = 0
+
+def rolling():
+    rolling_score = 0
+
+    while (bank_score < 100):
+        print("Your Rolling Score: " + str(rolling_score))
+        decision = input("Would you like to roll or bank?: ")
+        
+        if(decision == "roll"):
+            die_number = random.randint(1,6)
+            print("\n")
+            print("You rolled a " + str(die_number) + "")
+            
+            if (die_number > 1):
+                rolling_score += die_number
+                continue
+            else:
+                rolling_score = 0
+                print("You rolled a 1! You got zero for this round!\n")
+                return rolling_score
+            
+        if (decision == "bank"):
+            print("\n")
+            return rolling_score
+            
+while (bank_score < 100):
+    x += 1
+    print("Round: " + str(x))
+    print("Your Bank Score: " + str(bank_score))
+    bank_score += rolling()
+    
+else:
+    print("Congratulations! You won on " + str(x) + " rounds!")
