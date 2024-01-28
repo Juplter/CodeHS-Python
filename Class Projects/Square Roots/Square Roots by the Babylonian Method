@@ -1,0 +1,27 @@
+import math
+S = int(input("Enter a number to get its square root: "))
+
+x = 0
+y = 0
+z = 0
+
+if(S != 0):
+    print("Process to find the inital guess: ")
+    while (x + 1) * (x + 1) < S:
+        x += 1
+        print("Guess: " + str(x) + " = " + str(x*x))
+    print("\n The Guess Number is: " + str(x) + ", because " + str(x) + "*" + str(x) + " = " + str(x*x) + ", which is less than: " + str(S) + ".\n")
+    
+while x * x != S:
+    if y == x:
+        break
+    y = x
+    z += 1
+    x = (x + S/x)/2
+    print("Iteration " + str(z) + " : " + str(x))
+
+    
+square_root = math.sqrt(S)
+
+print("\n The square root using the Babylonian Method is: " + str(x))
+print("\n The square root using the internal function is: " + str(square_root))
