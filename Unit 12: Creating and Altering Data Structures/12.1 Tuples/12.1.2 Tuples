@@ -1,0 +1,18 @@
+Question: 1
+Which of the following is the correct way to declare a tuple?
+
+Correct Answer
+x = (1, 2, 3)
+
+x = [1, 2, 3]
+
+Question: 2
+Which of the following is NOT true about tuples?
+Tuples are ordered.
+
+Tuples are immutable.
+
+Tuples can contain elements of different types.
+
+Correct Answer
+Tuples use parentheses to access individual elements, rather than square brackets.
