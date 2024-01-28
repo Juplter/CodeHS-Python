@@ -1,0 +1,26 @@
+Question: 1
+Which of the following code snippets will correctly convert a string to a list?
+Correct Answer
+my_string = "hello"
+str_as_list = list(my_string)
+
+my_string = "hello"
+str_as_list = listify(my_string)
+
+my_string = "hello"
+str_as_list = make_list(my_string)
+
+my_string = "hello"
+str_as_list = new_list(my_string)
+
+
+Question: 2
+Which of the following Python programs creates a list with the numbers 1 through 5?
+my_list = (1, 2, 3, 4, 5)
+
+Correct Answer
+my_list = [1, 2, 3, 4, 5]
+
+my_list = 1, 2, 3, 4, 5
+
+my_list = "1, 2, 3, 4, 5"
