@@ -1,0 +1,36 @@
+import random
+
+def bubble_sort(list_ascending):
+    length = len(list_random)
+    swap = False
+    for i in range(length - 1):
+        for j in range(0, length - i - 1):
+            if list_ascending[j] > list_ascending[j + 1]:
+                swap = True
+                list_ascending[j], list_ascending[j + 1] = list_ascending[j + 1], list_ascending[j]
+        if not swap:
+            return
+    
+list_random = [0] * 20
+list_ascending = [0] * 20
+for i in range(20):
+    list_random[i] = random.randint(1,100)
+    list_ascending[i] = list_random[i]
+print("list_random: \n" + str(list_random))
+print()
+    
+bubble_sort(list_ascending)
+print("list_ascending: \n" + str(list_ascending))
+
+list_descending = [0] * 20
+for i in range(20):
+    list_descending[i] = list_ascending[i]
+list_descending.reverse()
+print()
+print("list_descending: \n" + str(list_descending))
+print()
+
+print("All Lists:")
+print(str(list_random) + "\n")
+print(str(list_ascending) + "\n")
+print(list_descending)
