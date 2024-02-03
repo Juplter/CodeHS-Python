@@ -1,0 +1,8 @@
+# your function should return the maximum value in `my_list`
+def max_int_in_list(my_list):
+    for index in range(len(my_list)):
+        maximum_value = my_list[index]
+    for value in range(len(my_list)):
+        if maximum_value < my_list[value]:
+            maximum_value = my_list[value]
+    return maximum_value
