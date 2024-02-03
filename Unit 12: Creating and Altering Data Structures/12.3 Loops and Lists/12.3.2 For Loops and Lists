@@ -1,0 +1,51 @@
+Question: 1
+What code below will print the following?
+
+Letter 1: T
+Letter 2: i
+Letter 3: m
+
+Correct Answer
+name = "Tim"
+name_list = list(name)
+for index, value in enumerate(name_list):
+    print("Letter " + str(index+1) + ": " + value)
+
+name = "Tim"
+name_list = list(name)
+for index, value in (name_list):
+    print("Letter " + str(index+1) + ": " + value)
+
+name = "Tim"
+name_list = list(name)
+for index in enumerate(name_list):
+    print("Letter " + str(index) + ": " + value)
+
+name = "Tim"
+name_list = list(name)
+for index, value in enumerate(name_list):
+    print(value + str(index))
+
+
+Question: 2
+What does the following code print?
+
+time_of_day = ["morning", "afternoon", "evening"]
+for word in time_of_day:
+    print("Good " + word)
+
+
+Good morning, Good afternoon, Good evening
+
+Correct Answer
+Good morning
+Good afternoon
+Good evening
+
+
+Good morning
+Good morning
+Good morning
+
+
+Good morning
