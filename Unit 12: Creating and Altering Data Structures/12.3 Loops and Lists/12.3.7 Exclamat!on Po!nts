@@ -1,0 +1,12 @@
+# update this function so it replaces all lowercase 'i's in `text` with '!'
+def exclamation(text):
+    text = text.split()
+    sentence = ""
+    for word in text:
+        for letter in word:
+            if letter == "i":
+                letter = "!"
+            sentence += letter
+        if(word != text[-1]):
+            sentence += " "
+    return sentence
