@@ -1,0 +1,36 @@
+word = input("Enter a word: ")
+word_list = list(word)
+
+def get_letter(index):
+    while True:
+        letter = input("Enter a letter: ")
+        
+        if len(letter) != 1:
+            print("Must be exactly one character!")
+        elif letter.isupper() == True:
+            print("Character must be a lowercase letter!")
+        else:
+            return letter
+
+
+def get_index(word):
+    length = len(word)
+    while True:
+        try:
+            index = int(input("Enter an index (-1 to quit): "))
+            if index == -1:
+                return index
+            if index >= 0 and index <= (length):
+                return index
+            print("Invalid index")
+        except ValueError:
+                print("Index must be an integer!")
+            
+        
+while True:
+    index = get_index(word)
+    if index == -1:
+        break
+    letter = get_letter(index)
+    word_list[index] = letter
+    print("".join(word_list))
