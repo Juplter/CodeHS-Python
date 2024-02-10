@@ -1,0 +1,8 @@
+name_list = []
+for i in range(5):
+    name = input("Name: ")
+    name = name.split()
+    print(name)
+    name_list.append(name[-1])
+name_list.sort()
+print(name_list)
