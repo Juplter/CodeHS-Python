@@ -1,6 +1,5 @@
 # CodeHS-Solutions-Python
-This repository contains the solutions to the majority of CodeHS exercises for the Python programming language. Although, it is required that you attempt the exercises beforehand 
-according to the CodeHS Terms of Use and Service - https://codehs.com/terms. 
+This repository contains the solutions to the majority of CodeHS exercises for the Python programming language. However, it is an obligation that you complete all of the problems before using this database according to the CodeHS Terms of Use and Service - https://codehs.com/terms.
 
 ## Use
 The code should be utilized for verification or reference purposes rather than cheating or skipping exercises.
