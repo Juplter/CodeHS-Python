@@ -1,0 +1,53 @@
+Question: 1
+Look at the following program:
+
+my_list = ["bananas", "oranges", "grapes", "pineapples", "apples"]
+
+# You pick the code that goes here...
+# ...
+# ...
+
+print(my_list)
+Pick the code that results in the following output:
+
+['pineapples', 'oranges', 'grapes', 'apples']
+
+
+my_list.remove("bananas")
+
+my_list.sort()
+my_list.remove("bananas")
+
+my_list.reverse()
+my_list.remove("bananas")
+
+Correct Answer
+my_list.sort()
+my_list.reverse()
+my_list.remove("bananas")
+
+
+Question: 2
+Look at the following program:
+
+my_list = ["bananas", "oranges", "grapes", "pineapples", "apples"]
+
+# You pick the code that goes here...
+# ...
+# ...
+
+print(my_list)
+Pick the code that results in the following output:
+
+['apples', 'bananas', 'grapes', 'oranges', 'pineapples']
+
+
+my_list.sort()
+my_list.reverse()
+
+Correct Answer
+my_list.sort()
+
+my_list.reverse()
+
+my_list.remove("grapes")
