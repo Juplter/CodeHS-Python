@@ -1,0 +1,9 @@
+number_list = []
+number_sum = 0
+for i in range(5):
+    number = int(input("Number: "))
+    number_list.append(number)
+    print(number_list)
+for i in range(5):
+    number_sum += number_list[i]
+print(number_sum)
