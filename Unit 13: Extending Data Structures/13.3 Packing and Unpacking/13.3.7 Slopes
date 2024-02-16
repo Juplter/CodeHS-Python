@@ -1,0 +1,16 @@
+line = []
+for i in range(5):
+    print("\nCoordinate: " + str(i + 1))
+    x = int(input("Enter the x coordinate: "))
+    y = int(input("Enter the y coordinate: "))
+    line.append((x, y))
+print(line)
+
+slope1 = ((line[1][1]-line[0][1])/(line[1][0]-line[0][0]))
+print("Slope between " + str(line[0]) + " and " + str(line[1]) + ": " + str(slope1))
+slope2 = ((line[2][1]-line[1][1])/(line[2][0]-line[1][0]))
+print("Slope between " + str(line[1]) + " and " + str(line[2]) + ": " + str(slope2))
+slope3 = ((line[3][1]-line[2][1])/(line[3][0]-line[2][0]))
+print("Slope between " + str(line[2]) + " and " + str(line[3]) + ": " + str(slope3))
+slope4 = ((line[4][1]-line[3][1])/(line[4][0]-line[3][0]))
+print("Slope between " + str(line[3]) + " and " + str(line[4]) + ": " + str(slope4))
