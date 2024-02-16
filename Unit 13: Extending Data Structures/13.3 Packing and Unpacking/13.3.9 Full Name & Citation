@@ -1,0 +1,7 @@
+forename = input("Forename: ")
+surname = input("Surname: ")
+
+print("Full name: " + str(forename) + " " + str(surname))
+
+forename, surname = surname, forename
+print("Citation: " + str(forename) + ", " + str(surname))
