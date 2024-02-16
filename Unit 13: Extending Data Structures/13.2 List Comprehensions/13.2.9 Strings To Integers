@@ -1,0 +1,13 @@
+# Write your function here...
+def safe_int(value):
+    try:
+        return int(value)
+    except ValueError or TypeError:
+        return 0
+
+list_of_strings = ["a", "2", "7", "zebra"]
+
+
+# Your code here...
+list_of_integers = [safe_int(list_of_strings[i]) for i in range(len(list_of_strings))]
+print(list_of_integers)
