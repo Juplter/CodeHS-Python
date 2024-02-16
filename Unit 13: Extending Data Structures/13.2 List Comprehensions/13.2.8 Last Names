@@ -1,0 +1,11 @@
+names = [
+    "Maya Angelou",
+    "Chimamanda Ngozi Adichie",
+    "Tobias Wolff",
+    "Sherman Alexie",
+    "Aziz Ansari"
+]
+
+# Your code here...
+last_names = [name.split(' ')[-1] for name in names]
+print(last_names)
