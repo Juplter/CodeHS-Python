@@ -1,0 +1,18 @@
+Question: 1
+Suppose you have the following dictionary, which stores the names and ages of people:
+
+my_dictionary = {
+    "Bo": 32,
+    "Fiona": 28,
+    "Carlos": 45
+}
+Which line correctly prints Bo’s age?
+
+print(my_dictionary[0])
+
+print(my_dictionary[0][1])
+
+Correct Answer
+print(my_dictionary["Bo"])
+
+print(my_dictionary["Bo"][1])
