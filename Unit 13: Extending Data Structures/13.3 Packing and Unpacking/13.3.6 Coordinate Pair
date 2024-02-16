@@ -1,0 +1,5 @@
+x = int(input("Enter the x coordinate: "))
+y = int(input("Enter the y coordinate: "))
+
+coordinate_pair = (x,y)
+print(coordinate_pair)
