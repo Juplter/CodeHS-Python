@@ -1,0 +1,30 @@
+Question: 1
+What does this program print?
+
+numbers = [x + x for x in range(4)]
+print(numbers)
+
+[0, 1, 2, 3, 4]
+
+[0, 1, 2, 3]
+
+[2, 4, 6, 8]
+
+Correct Answer
+[0, 2, 4, 6]
+
+
+Question: 2
+What does this program print?
+
+numbers = [x % 2 == 0 for x in range(0, 6)]
+print(numbers)
+
+Correct Answer
+[True, False, True, False, True, False]
+
+[0, 1, 0, 1, 0, 1, 0]
+
+[0, 1, 0, 1, 0, 1]
+
+[0, 1, 2, 3, 4, 5]
