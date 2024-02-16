@@ -1,0 +1,10 @@
+text = input("Enter a paragraph of text: ")
+text = text.split()
+
+text_dictionary = {}
+for word in text:
+    if word in text_dictionary:
+        text_dictionary[word] += 1
+    else:
+        text_dictionary[word] = 1
+print(text_dictionary)
