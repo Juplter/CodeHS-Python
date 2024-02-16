@@ -1,0 +1,12 @@
+phone_book = {}
+
+while True:
+    name = input("Enter a name: ")
+    if len(name) == 0:
+        break
+    elif name in phone_book:
+        print(phone_book[name])
+    else:
+        phone_number = input("Enter their phone number: ")
+        phone_book[name] = phone_number
+print(phone_book)
