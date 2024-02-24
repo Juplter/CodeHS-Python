@@ -44,4 +44,4 @@ while won == False and guesses_left != 0:
 if won == True:
     print("Congrats! You win. The word was: " + str(secret_word))
 else:
-    print("You have lost.")
+    print("You lose! The word was: " + str(secret_word))
