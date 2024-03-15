@@ -1,0 +1,52 @@
+Question: 1
+What data structure does the readlines() method return?
+String
+
+Integer
+
+Correct Answer
+List
+
+Dictionary
+
+
+Question: 2
+What character is included at the end of each line when reading lines with readlines()?
+Comma (,)
+
+Semicolon (;)
+
+Correct Answer
+Newline character (\n)
+
+Space character ()
+
+No extra characters
+
+
+Question: 3
+What is the difference between using readline() and readlines() to read lines from a file?
+readline() can only read one line in a file, while readlines() reads all lines.
+
+readline() reads the entire file, while readlines() reads a specific line.
+
+Correct Answer
+readline() returns a string, while readlines() returns a list of strings.
+
+readline() reads lines in reverse order, while readlines() reads lines in the original order.
+
+
+Question: 4
+Which of the following is the correct way to iterate through each line of a file using readlines()?
+for line in file.readlines():
+Python
+
+for line in file.readline():
+Python
+
+for line in readlines(file):
+Python
+
+Correct Answer
+lines = file.readlines()
+for line in lines:
