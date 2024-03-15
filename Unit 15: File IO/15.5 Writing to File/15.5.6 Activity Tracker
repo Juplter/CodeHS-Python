@@ -1,0 +1,8 @@
+activities = ['Running', 'Swimming', 'Cycling', 'Yoga', 'Dancing']
+
+file = open("activity_log.txt", "w")
+
+for i in range(len(activities)):
+    file.write(str(activities[i]) + "\n")
+
+file.close()
