@@ -1,0 +1,14 @@
+file = "story.txt"
+count = 0
+
+content = open(file, "r")
+
+line = content.readline()
+
+while line:
+    line.strip()
+    line = content.readline()
+    count += 1
+    
+content.close()
+print(count)
