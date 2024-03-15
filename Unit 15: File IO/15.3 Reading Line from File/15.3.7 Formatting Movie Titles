@@ -1,0 +1,12 @@
+file = "movies.txt"
+
+content = open(file, "r")
+
+line = content.readline()
+
+while line:
+    line.strip()
+    print("Movie: "+ line.title())
+    line = content.readline()
+    
+content.close()
