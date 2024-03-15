@@ -1,0 +1,44 @@
+Question: 1
+What is the purpose of the readline() method in Python?
+It reads the entire contents of a file.
+
+Correct Answer
+It reads one line from a file.
+
+It reads a specified number of characters from a file.
+
+It reads and stores each line of a file in a list.
+
+
+Question: 2
+How can you remove newline characters from a line read using readline()?
+Correct Answer
+Use the strip() method.
+
+Use the replace() method.
+
+Use the split() method.
+
+None of the above
+
+
+Question: 3
+Which of the following best describes what the readline() method does when it reaches the end of a file?
+Correct Answer
+It returns an empty string.
+
+It raises an exception.
+
+It returns None.
+
+It automatically closes the file.
+
+
+Question: 4
+When would you choose to use the readline() method over the read() method in Python?
+When you want to read the entire file.
+
+When you want to read a specific number of characters.
+
+Correct Answer
+When you want to read and process each line individually.
