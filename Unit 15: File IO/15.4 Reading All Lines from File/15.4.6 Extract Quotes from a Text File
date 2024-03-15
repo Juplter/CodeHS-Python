@@ -1,0 +1,13 @@
+file_name = "quotes.txt"
+file = open(file_name, "r")
+lines = file.readlines()
+
+for line in lines:
+    line = line[1:]
+    for i in range(len(line)):
+        if line[i] == "\"":
+            letter_number = i
+    line = line[:(letter_number)]
+    print(line.strip())
+
+file.close()
