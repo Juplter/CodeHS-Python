@@ -1,0 +1,46 @@
+Question: 1
+What is the purpose of the file mode “w” in Python?
+Read the contents of a file.
+
+Append data to an existing file.
+
+Correct Answer
+Overwrite an existing file or create a new file for writing.
+
+Move the file pointer to a specific position.
+
+
+Question: 2
+What is the purpose of the file mode “a” in Python?
+Read the contents of a file.
+
+Correct Answer
+Append data to an existing file.
+
+Overwrite an existing file or create a new file for writing.
+
+Move the file pointer to a specific position.
+
+
+Question: 3
+If you open a file in write mode (“w”) and the file already exists, what will happen?
+The existing file will be deleted.
+
+The file will remain unchanged, and new data will be appended.
+
+Correct Answer
+The file contents will be overwritten with the new data.
+
+An error will be raised, indicating that the file already exists.
+
+
+Question: 4
+Which of the following methods is used to write data to a file in Python?
+read()
+
+readlines()
+
+Correct Answer
+write()
+
+writelines()
