@@ -1,0 +1,11 @@
+name = input("Enter your name: ")
+message = input("Enter your message: ")
+
+file_name = "guest_book.txt"
+file = open(file_name, "a")
+
+file.write("\n")
+file.write("Name: " + name + ", Message: " + message)
+
+file.close()
+print("Your message has been recorded.")
