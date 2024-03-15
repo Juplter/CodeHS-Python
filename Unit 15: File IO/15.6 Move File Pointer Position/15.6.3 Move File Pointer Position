@@ -1,0 +1,45 @@
+Question: 1
+What does the seek() function do in Python file handling?
+Reads the entire contents of a file
+
+Reads a specified portion of a file
+
+Correct Answer
+Moves the file pointer to a specified position in a file
+
+Closes a file
+
+
+Question: 2
+Which mode should be used when opening a file for seeking operations?
+Correct Answer
+“r”
+
+“w”
+
+“a”
+
+“s”
+
+
+Question: 3
+What is the default reference point for the seek() function?
+Correct Answer
+Beginning of the file
+
+End of the file
+
+Current file position
+
+None of the above
+
+Question: 4
+What happens if the specified offset in seek() exceeds the file size?
+It throws an error
+
+Correct Answer
+The file position is set to the end of the file
+
+The file position is set to the beginning of the file
+
+It has no effect on the file position
