@@ -1,0 +1,12 @@
+file_name = "haystack.txt"
+file = open(file_name, "r")
+lines = file.readlines()
+
+total = len(lines)
+if total % 2 > 0:
+    median = int((total/2) - 0.5)
+else:
+    median = (total/2)
+
+file.close()
+print(lines[median])
