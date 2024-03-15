@@ -1,0 +1,13 @@
+file = open("data.txt", "r")
+total = 0
+
+lines = file.readlines()
+
+for line in lines:
+    total += int(line.strip())
+    
+file.close()
+    
+sum_file = open("sum.txt", "w")
+sum_file.write(str(total))
+sum_file.close()
