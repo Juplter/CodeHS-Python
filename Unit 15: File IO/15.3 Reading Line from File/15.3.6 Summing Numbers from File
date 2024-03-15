@@ -1,0 +1,16 @@
+file = "numbers.txt"
+total = 0
+
+content = open(file, "r")
+
+line = content.readline()
+
+while line:
+    if line != "":
+        number = int(line)
+        total += number
+    line.strip()
+    line = content.readline()
+    
+content.close()
+print(total)
