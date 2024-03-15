@@ -1,0 +1,15 @@
+file = open("story.txt", "r")
+content = file.read()
+file_length = len(content)
+reverse = ""
+file.seek(0,2)
+position = file.tell()
+
+for i in range((file_length) + 1):
+    file.seek(position - i)
+    reverse += file.read(1)
+file.close()
+
+reversed_file = open("reversed.txt", "w")
+reversed_file.write(reverse)
+reversed_file.close()
