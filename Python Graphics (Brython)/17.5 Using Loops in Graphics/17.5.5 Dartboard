@@ -1,0 +1,17 @@
+width = 400
+height = 400
+set_size(width, height)
+radius = width/2
+
+while radius != 0:
+    circle = Circle(radius)
+    
+    if radius % 50 == 0:
+        circle.set_color(Color.red)
+    else:
+        circle.set_color(Color.yellow)
+        
+    circle.set_position(width/2, height/2)
+    add(circle)
+    
+    radius -= 25
