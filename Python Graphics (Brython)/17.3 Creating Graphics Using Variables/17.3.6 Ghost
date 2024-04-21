@@ -1,0 +1,69 @@
+# Set the dimensions of the canvas
+set_size(300, 400)
+
+# Get the height and width of the canvas
+width = get_width()
+height = get_height()
+
+# Dimensions of each shape
+head_radius = width/4
+body_width = head_radius * 2
+body_height = height/3
+num_feet = 3
+foot_radius = body_width / (num_feet * 2)
+eye_radius = head_radius/4
+eye_offset = eye_radius * 1.5
+pupil_radius = eye_radius/2.5
+pupil_left_offset = eye_radius
+pupil_right_offset = pupil_radius * 5
+
+# Colors (These can be altered!)
+body_color = Color.red
+eye_color = Color.white
+pupil_color = Color.blue
+
+
+head = Circle(head_radius)
+head.set_position(width/2,height/2)
+head.set_color(body_color)
+add(head)
+
+body = Rectangle(body_width,body_height)
+body.set_position(width/2-head_radius,height/2)
+body.set_color(body_color)
+add(body)
+
+left_eye = Circle(eye_radius)
+left_eye.set_position(width/2-eye_offset,height/2)
+left_eye.set_color(eye_color)
+add(left_eye)
+
+right_eye = Circle(eye_radius)
+right_eye.set_position(width/2+eye_offset,height/2)
+right_eye.set_color(eye_color)
+add(right_eye)
+
+left_pupil = Circle(pupil_radius)
+left_pupil.set_position(width/2-pupil_left_offset,height/2)
+left_pupil.set_color(pupil_color)
+add(left_pupil)
+
+right_pupil = Circle(pupil_radius)
+right_pupil.set_position(width/2+pupil_right_offset,height/2)
+right_pupil.set_color(pupil_color)
+add(right_pupil)
+
+leg_one = Circle(foot_radius)
+leg_one.set_position(width/2-(foot_radius*2),(height/2+(body_height)))
+leg_one.set_color(body_color)
+add(leg_one)
+
+leg_two = Circle(foot_radius)
+leg_two.set_position(width/2,height/2+(body_height))
+leg_two.set_color(body_color)
+add(leg_two)
+
+leg_three = Circle(foot_radius)
+leg_three.set_position(width/2+(foot_radius*2),(height/2+(body_height)))
+leg_three.set_color(body_color)
+add(leg_three)
