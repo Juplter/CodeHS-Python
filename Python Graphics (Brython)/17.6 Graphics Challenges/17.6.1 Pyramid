@@ -1,0 +1,16 @@
+set_size(400, 400)
+
+# Constant values
+canvas_width= get_width()
+canvas_height= get_height()
+row_height= 0.01
+individual_block_width = 0.01
+
+rows = int(input("How many sections does the pyramid have?: "))
+block_number = rows
+
+for i in range(rows):
+    rectangle = Rectangle(block_number*individual_block_width, row_height)
+    rectangle.set_position(canvas_width/2-((block_number*individual_block_width)/2),(canvas_height-(i*row_height))-row_height)
+    add(rectangle)
+    block_number -= 1
