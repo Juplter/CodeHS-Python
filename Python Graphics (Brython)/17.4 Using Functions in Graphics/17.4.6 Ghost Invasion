@@ -1,0 +1,70 @@
+# Get the height and width of the canvas
+width = get_width()
+height = get_height()
+
+# Dimensions of each shape
+head_radius = width/6
+body_width = head_radius * 2
+body_height = height/6
+num_feet = 3
+foot_radius = body_width / (num_feet * 2)
+eye_radius = head_radius/4
+eye_offset = eye_radius * 1.5
+pupil_radius = eye_radius/2.5
+pupil_left_offset = eye_radius
+pupil_right_offset = pupil_radius * 5
+
+# Colors (These can be altered!)
+eye_color = Color.white
+pupil_color = Color.blue
+
+def draw_ghost(x_position, y_position, color):
+    head = Circle(head_radius)
+    head.set_position(x_position,y_position)
+    head.set_color(color)
+    add(head)
+    
+    body = Rectangle(body_width,body_height)
+    body.set_position(x_position-head_radius,y_position)
+    body.set_color(color)
+    add(body)
+    
+    left_eye = Circle(eye_radius)
+    left_eye.set_position(x_position-eye_offset,y_position)
+    left_eye.set_color(eye_color)
+    add(left_eye)
+    
+    right_eye = Circle(eye_radius)
+    right_eye.set_position(x_position+eye_offset,y_position)
+    right_eye.set_color(eye_color)
+    add(right_eye)
+    
+    left_pupil = Circle(pupil_radius)
+    left_pupil.set_position(x_position-pupil_left_offset,y_position)
+    left_pupil.set_color(pupil_color)
+    add(left_pupil)
+    
+    right_pupil = Circle(pupil_radius)
+    right_pupil.set_position(x_position+pupil_right_offset,y_position)
+    right_pupil.set_color(pupil_color)
+    add(right_pupil)
+    
+    leg_one = Circle(foot_radius)
+    leg_one.set_position(x_position-(foot_radius*2),(y_position+(body_height)))
+    leg_one.set_color(color)
+    add(leg_one)
+    
+    leg_two = Circle(foot_radius)
+    leg_two.set_position(x_position,y_position+(body_height))
+    leg_two.set_color(color)
+    add(leg_two)
+    
+    leg_three = Circle(foot_radius)
+    leg_three.set_position(x_position+(foot_radius*2),(y_position+(body_height)))
+    leg_three.set_color(color)
+    add(leg_three)
+    
+draw_ghost(200, 200, Color.purple)
+draw_ghost(150, 300, Color.orange)
+draw_ghost(100, 100, Color.cyan)
+draw_ghost(300, 350, "#FE7F9C")
