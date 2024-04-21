@@ -1,0 +1,9 @@
+height = get_height()
+width = get_width()
+num_circles = 15
+radius = width/num_circles/2
+
+for i in range(num_circles):
+    worm_segment = Circle(radius)
+    worm_segment.set_position(radius + radius*i*2, height/2)
+    add(worm_segment)
