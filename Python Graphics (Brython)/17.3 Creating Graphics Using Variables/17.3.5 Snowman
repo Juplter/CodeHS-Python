@@ -1,0 +1,26 @@
+# Set the dimensions of the canvas
+set_size(300, 400)
+
+# Get the height and width of the canvas
+width = get_width()
+height = get_height()
+
+# Dimensions of each shape
+bottom_diameter = height/2
+middle_diameter = bottom_diameter/2
+top_diameter = middle_diameter/2
+
+bottom_circle = Circle(bottom_diameter/2)
+bottom_circle.set_position(width/2,height-(bottom_diameter/2))
+bottom_circle.set_color(Color.grey)
+add(bottom_circle)
+
+middle_circle = Circle(middle_diameter/2)
+middle_circle.set_position(width/2,height-(bottom_diameter+(middle_diameter/2)))
+middle_circle.set_color(Color.grey)
+add(middle_circle)
+
+top_circle = Circle(top_diameter/2)
+top_circle.set_position(width/2,height-(bottom_diameter+middle_diameter+(top_diameter/2)))
+top_circle.set_color(Color.grey)
+add(top_circle)
