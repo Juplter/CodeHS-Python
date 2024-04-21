@@ -1,0 +1,7 @@
+name = Text("CodeHS Answers")
+name.set_color(Color.cyan)
+name.set_position(50,200)
+add(name)
+
+underline = Line(50,225,275,225)
+add(underline)
