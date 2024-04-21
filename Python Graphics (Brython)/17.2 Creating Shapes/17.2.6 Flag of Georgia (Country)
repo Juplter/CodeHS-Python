@@ -1,0 +1,30 @@
+canvas_height = 300
+canvas_width = 400
+
+set_size(canvas_width, canvas_height)
+
+def paint_cross(x,y):
+    vertical_rectangle = Rectangle(20,60)
+    vertical_rectangle.set_position(x,y)
+    vertical_rectangle.set_color("#FF0000")
+    add(vertical_rectangle)
+
+    horizontal_rectangle = Rectangle(60,20)
+    horizontal_rectangle.set_position(x-20,y+20)
+    horizontal_rectangle.set_color("#FF0000")
+    add(horizontal_rectangle)
+
+paint_cross(((canvas_width/4)-20),((canvas_height/4)-40))
+paint_cross(((canvas_width/4)-20),((canvas_height*5/6)-40))
+paint_cross(((canvas_width*4/5)-20),((canvas_height/4)-40))
+paint_cross(((canvas_width*4/5)-20),((canvas_height*5/6)-40))
+    
+vertical_rectangle = Rectangle(50,canvas_height)
+vertical_rectangle.set_position((canvas_width/2)-25,0)
+vertical_rectangle.set_color("#FF0000")
+add(vertical_rectangle)
+
+horizontal_rectangle = Rectangle(canvas_width, 50)
+horizontal_rectangle.set_position(0,(canvas_height/2)-25)
+horizontal_rectangle.set_color("#FF0000")
+add(horizontal_rectangle)
