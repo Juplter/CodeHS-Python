@@ -1,0 +1,9 @@
+set_size(400,300)
+
+def vertical_line(position, length):
+    line = Line(position, 0, position, length)
+    add(line)
+    
+vertical_line(100, 200)
+vertical_line(200, 100)
+vertical_line(300, 50)
