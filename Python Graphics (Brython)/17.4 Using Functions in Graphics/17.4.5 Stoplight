@@ -1,0 +1,20 @@
+light_radius = 35
+box_width = 120
+box_height = 350
+dist_between_lights = 50
+
+set_size(box_width, box_height)
+
+background = Rectangle(box_width, box_height)
+background.set_color(Color.gray)
+add(background)
+
+def draw_circle(x_position, y_position, color):
+    light = Circle(light_radius)
+    light.set_position(x_position, y_position)
+    light.set_color(color)
+    add(light)
+    
+draw_circle(box_width/2, (box_height/2)-(light_radius*2)-dist_between_lights, Color.red)
+draw_circle(box_width/2, box_height/2, Color.yellow)
+draw_circle(box_width/2, (box_height/2)+(light_radius*2)+dist_between_lights, Color.green)
