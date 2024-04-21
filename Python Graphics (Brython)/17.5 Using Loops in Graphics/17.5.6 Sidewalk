@@ -1,0 +1,19 @@
+# Constant values
+width = get_width()
+height = get_height()
+separation = 10 # Spacing between blocks and on sides of canvas
+
+# 8 blocks on each side of canvas
+block_height = (height - separation * 9) / 8
+block_width = (width - separation * 9) / 8
+
+def draw_rectangle(block_width, block_height, x, y):
+    block = Rectangle(block_width, block_height)
+    block.set_position(x, y)
+    add(block)
+
+for i in range(8):
+    draw_rectangle(block_width, block_height, separation+((block_width+separation)*i), separation)
+    draw_rectangle(block_width, block_height, separation+((block_width+separation)*i), (height-separation-block_height))
+    draw_rectangle(block_width, block_height, separation, separation+((block_height+separation)*i))
+    draw_rectangle(block_width, block_height, (width-separation-block_width), separation+((block_height+separation)*i))
