@@ -1,0 +1,30 @@
+canvas_height = 300
+canvas_width = 400
+
+set_size(canvas_width,canvas_height)
+
+background = Rectangle(canvas_width,canvas_height)
+background.set_color("#0000FF")
+add(background)
+
+
+white_vertical_rectangle = Rectangle(80,canvas_height)
+white_vertical_rectangle.set_position((canvas_width/3)-40,0)
+white_vertical_rectangle.set_color("#FFFFFF")
+add(white_vertical_rectangle)
+
+white_horizontal_rectangle = Rectangle(canvas_width, 80)
+white_horizontal_rectangle.set_position(0,(canvas_height/2)-40)
+white_horizontal_rectangle.set_color("#FFFFFF")
+add(white_horizontal_rectangle)  
+
+
+red_vertical_rectangle = Rectangle(50,canvas_height)
+red_vertical_rectangle.set_position((canvas_width/3)-25,0)
+red_vertical_rectangle.set_color("#FF0000")
+add(red_vertical_rectangle)
+
+red_horizontal_rectangle = Rectangle(canvas_width, 50)
+red_horizontal_rectangle.set_position(0,(canvas_height/2)-25)
+red_horizontal_rectangle.set_color("#FF0000")
+add(red_horizontal_rectangle)
