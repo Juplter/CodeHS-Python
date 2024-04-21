@@ -1,0 +1,21 @@
+# Set the dimensions of the canvas to 400x300
+# NOTE: These values can change and the layout of the shapes should stay the same!
+set_size(400,300)
+
+# Get the height and width of the canvas
+width = get_width()
+height = get_height()
+
+# Dimensions and colors of shapes
+# Add variables to control the height and width of the rectangles
+blue = "#0057B8"
+yellow = "#FFD700"
+
+blue_rectangle = Rectangle(width,height/2)
+blue_rectangle.set_color(blue)
+add(blue_rectangle)
+
+yellow_rectangle = Rectangle(width, height/2)
+yellow_rectangle.set_position(0,height/2)
+yellow_rectangle.set_color(yellow)
+add(yellow_rectangle)
