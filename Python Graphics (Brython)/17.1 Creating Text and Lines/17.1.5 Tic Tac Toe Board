@@ -1,0 +1,27 @@
+# Set the canvas to 250x250px
+set_size(250, 250)
+
+title = Text("Tic Tac Toe")
+title.set_font("25pt Times New Roman")
+title.set_position(50,45)
+add(title)
+
+
+# Draw horizontal lines
+horizontal_line = Line(50,100,200,100)
+horizontal_line.set_color(Color.purple)
+add(horizontal_line)
+
+second_horizontal_line = Line(50,150,200,150)
+second_horizontal_line.set_color(Color.purple)
+add(second_horizontal_line)
+
+
+# Draw vertical lines
+vertical_line = Line(100,50,100,200)
+vertical_line.set_color(Color.orange)
+add(vertical_line)
+
+second_vertical_line = Line(150,50,150,200)
+second_vertical_line.set_color(Color.orange)
+add(second_vertical_line)
