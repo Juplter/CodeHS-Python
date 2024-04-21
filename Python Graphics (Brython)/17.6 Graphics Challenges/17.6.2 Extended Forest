@@ -1,0 +1,46 @@
+# Get the height and width of the canvas
+canvas_width = get_width()
+canvas_height = get_height()
+
+# Dimensions for shapes
+trunk_width = canvas_width/20
+leaves_width = trunk_width * 4
+leaves_height = leaves_width * 2
+
+# This function draws a tree at a given location
+def draw_tree(x, height):
+    trunk = Rectangle(trunk_width, height - leaves_height)
+    trunk.set_position(x - trunk_width/2, canvas_height - height + leaves_height)
+    trunk.set_color("#3F301D")
+    add(trunk)
+    leaves = Rectangle(leaves_width, leaves_height)
+    leaves.set_position(x - leaves_width/2, canvas_height - height)
+    leaves.set_color(Color.green)
+    add(leaves)
+    
+    colors = ["#75A870", "#567E53", "#4E9048"]
+    
+    for i in range(1000):
+        leaf = Circle(5)
+        leaf.set_position(random.randint(int(x-(leaves_width/2)), int(x+(leaves_width/2))), random.randint(int(canvas_height - height), int(canvas_height - height+leaves_height)))
+        leaf.set_color(random.choice(colors))
+        add(leaf)
+
+# This for loop adds trees based on dimensions given to the user
+tree_number = int(input("How many trees do you want to add?: "))
+for i in range(tree_number):
+    while True:
+        x = int(input("What is the x-coordinate for the tree?: "))
+        height = int(input("What is the y-coordinate for the tree?: "))
+            
+        if((x <= 0 or x > canvas_width) or (height <= 0 or height > canvas_height)):
+            print("Enter values that are within the screen. ")
+            continue
+            
+        draw_tree(x, height)
+        break
+    
+sun = Circle(canvas_width/3)
+sun.set_position(canvas_width,0)
+sun.set_color(Color.yellow)
+add(sun)
