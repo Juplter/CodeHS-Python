@@ -1,0 +1,16 @@
+# Constant Values
+blue = "#0057B8"
+yellow = "#FFD700"
+canvas_height = 300
+canvas_width = 400
+
+set_size(canvas_width, canvas_height)
+
+blue_rectangle = Rectangle(canvas_width,canvas_height/2)
+blue_rectangle.set_color("#0057B8")
+add(blue_rectangle)
+
+yellow_rectangle = Rectangle(canvas_width,canvas_height/2)
+yellow_rectangle.set_color("#FFD700")
+yellow_rectangle.set_position(0,150)
+add(yellow_rectangle)
