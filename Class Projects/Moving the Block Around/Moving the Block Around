@@ -1,0 +1,51 @@
+# Set the size of a screen:
+width = 600
+height = 500
+
+set_size(600,500)
+
+left_border = Rectangle(40,height)
+left_border.set_color(Color.red)
+add(left_border)
+
+top_border = Rectangle(width,40)
+top_border.set_color(Color.red)
+add(top_border)
+
+bottom_border = Rectangle(width,40)
+bottom_border.set_position(0,height-40)
+bottom_border.set_color(Color.red)
+add(bottom_border)
+
+right_border = Rectangle(40,height)
+right_border.set_position(width-40,0)
+right_border.set_color(Color.red)
+add(right_border)
+
+
+my_block = Rectangle(50,50)
+my_block.set_position(40,40)
+my_block.set_color(Color.green)
+add(my_block)
+
+
+# Control the mouse click:
+
+def start_game(x,y):
+    remove(game_text)
+
+game_text = Text("<< Click Here to Start >>")
+game_text.set_position((width/2) - 145, height/2)
+game_text.set_color(Color.white)
+add(game_text)
+
+add_mouse_click_handler(start_game)
+
+
+# Control the keyboard keys:
+
+def move_block(event):
+
+    if event.key == "ArrowLeft":
+        if(my_block.get_x() != 40):
+            my_block.move(-10, 0)
