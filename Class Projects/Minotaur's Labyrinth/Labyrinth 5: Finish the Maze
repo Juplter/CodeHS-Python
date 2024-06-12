@@ -1,0 +1,164 @@
+# Screen Setup:
+
+width = 640
+height = 480
+set_size(width,height)
+
+
+# Game Simulation
+
+labyrinth = [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,"□",0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+            [1,0,1,1,1,0,1,1,1,1,1,0,1,1,0,1],
+            [1,0,1,1,0,0,0,1,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1],
+            [1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
+            [1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1],
+            [1,1,1,1,0,1,1,1,1,1,0,0,0,1,"▪",1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            ]
+            
+for row in range(12):
+    for column in range(16):
+        if labyrinth[row][column] == 1:
+            block = Image("https://codehs.com/uploads/5ded7e248d5bb8a3337f3df8c4377378")
+            block.set_size(40,40)
+            block.set_position(40*column, 40*row)
+            add(block)
+        if labyrinth[row][column] == "□":
+            my_block = Image("https://codehs.com/uploads/7934b5abc735cfc6393d637f73a57245")
+            my_block.set_size(40,40)
+            my_block.set_position(40*column, 40*row)
+            add(my_block)
+        if labyrinth[row][column] == "▪":
+            end_block = Image("https://codehs.com/uploads/edbc1aa226af9bea100d67d6f023e38d")
+            end_block.set_size(40,40)
+            end_x = 40*column
+            end_y = 40*row
+            end_block.set_position(end_x,end_y)
+            add(end_block)
+row = 1
+column = 1
+runtime = True
+
+
+# Displaying Karel
+
+karel_north = Image("https://codehs.com/uploads/329396a18537ec6078be68392124eef3")
+karel_north.set_size(40,40)
+
+karel_east = Image("https://codehs.com/uploads/7934b5abc735cfc6393d637f73a57245")
+karel_east.set_size(40,40)
+
+karel_south = Image("https://codehs.com/uploads/273a9a5db26db29ec0475550988ed2e1")
+karel_south.set_size(40,40)
+
+karel_west = Image("https://codehs.com/uploads/be901fac70c4aa15884ffaf5787c818b")
+karel_west.set_size(40,40)
+
+def move_karel(left, right, up, down):
+    global my_block
+    if left == True:
+        karel_west.set_position(my_block.get_x(),my_block.get_y())
+        add(karel_west)
+        remove(karel_north)
+        remove(karel_east)
+        remove(karel_south)
+    elif right == True:
+        karel_east.set_position(my_block.get_x(),my_block.get_y())
+        add(karel_east)
+        remove(karel_north)
+        remove(karel_south)
+        remove(karel_west)
+    elif up == True:
+        karel_north.set_position(my_block.get_x(),my_block.get_y())
+        add(karel_north)
+        remove(karel_east)
+        remove(karel_south)
+        remove(karel_west)
+    elif down == True:
+        karel_south.set_position(my_block.get_x(),my_block.get_y())
+        add(karel_south)
+        remove(karel_north)
+        remove(karel_east)
+        remove(karel_west)
+
+
+# Control the mouse click:
+
+def start_game(x,y):
+    remove(game_text)
+
+title = Text("The Minotaur's Labyrinth")
+title.set_position((width/2)-170,30)
+title.set_font("25pt Futura")
+title.set_color("#7D7D7D")
+add(title)
+
+game_text = Text("Reach the Diamond Using Arrow Keys")
+game_text.set_position((width/2) - 200, height - 5)
+game_text.set_font("20pt Futura")
+game_text.set_color("#7D7D7D")
+add(game_text)
+
+add_mouse_click_handler(start_game)            
+            
+            
+# Control the keyboard keys:
+
+def move_block(event):
+    global labyrinth
+    global row
+    global column
+    global runtime
+    left = False
+    right = False
+    up = False
+    down = False
+    
+    if runtime == True:
+        if event.key == "ArrowLeft" and labyrinth[row][column - 1] == 0:
+            my_block.move(-40, 0)
+            labyrinth[row][column] = 0
+            column -= 1
+            labyrinth[row][column] = "□"
+            left = True
+            move_karel(left, right, up, down)
+            
+        if event.key == "ArrowRight" and labyrinth[row][column + 1] == 0:
+            my_block.move(40,0)
+            labyrinth[row][column] = 0
+            column += 1
+            labyrinth[row][column] = "□"
+            right = True
+            move_karel(left, right, up, down)
+    
+        if event.key == "ArrowUp" and my_block.get_y() != 40 and labyrinth[row - 1][column] == 0:
+            my_block.move(0, -40)
+            labyrinth[row][column] = 0
+            row -= 1
+            labyrinth[row][column] = "□"
+            up = True
+            move_karel(left, right, up, down)
+    
+        if event.key == "ArrowDown" and my_block.get_y() != (height - 80) and (labyrinth[row + 1][column] == 0 or labyrinth[row + 1][column] == "▪"):
+            my_block.move(0,40)
+            labyrinth[row][column] = 0
+            row += 1
+            labyrinth[row][column] = "□"
+            down = True
+            move_karel(left, right, up, down)
+            
+        if my_block.get_x() == end_x and my_block.get_y() == end_y:
+            runtime = False
+            win_screen = Text("Congratulations, You Win!")
+            win_screen.set_position((width/2) - 172, height/2)
+            win_screen.set_font("25pt Futura")
+            win_screen.set_color("#7D7D7D")
+            add(win_screen)
+
+add_key_down_handler(move_block)
