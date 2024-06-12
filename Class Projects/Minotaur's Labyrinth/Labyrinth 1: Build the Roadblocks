@@ -1,0 +1,174 @@
+# Screen Setup:
+width = 640
+height = 480
+
+set_size(width,height)
+
+left_border = Rectangle(40,height)
+left_border.set_color("#8B0000")
+add(left_border)
+
+top_border = Rectangle(width,40)
+top_border.set_color("#8B0000")
+add(top_border)
+
+bottom_border = Rectangle(width,40)
+bottom_border.set_position(0,height-40)
+bottom_border.set_color("#8B0000")
+add(bottom_border)
+
+right_border = Rectangle(40,height)
+right_border.set_position(width-40,0)
+right_border.set_color("#8B0000")
+add(right_border)
+
+end_block = Rectangle(40,40)
+end_block.set_position(width-80,height-80)
+end_block.set_color(Color.green)
+add(end_block)
+
+my_block = Rectangle(40,40)
+my_block.set_position(40,40)
+my_block.set_color(Color.red)
+add(my_block)
+
+title = Text("The Minotaur's Labyrinth")
+title.set_position((width/2)-145,25)
+title.set_font("20pt Futura")
+add(title)
+
+
+# Block Obstacles
+
+block_2_2 = Rectangle(120,40)
+block_2_2.set_position(80, 80)
+block_2_2.set_color("#8B0000")
+add(block_2_2)
+
+block_6_2 = Rectangle(200,40)
+block_6_2.set_position(240, 80)
+block_6_2.set_color("#8B0000")
+add(block_6_2)
+
+block_11_2 = Rectangle(80,40)
+block_11_2.set_position(480, 80)
+block_11_2.set_color("#8B0000")
+add(block_11_2)
+
+block_2_3 = Rectangle(80,40)
+block_2_3.set_position(80, 120)
+block_2_3.set_color("#8B0000")
+add(block_2_3)
+
+block_7_3 = Rectangle(200,40)
+block_7_3.set_position(280, 120)
+block_7_3.set_color("#8B0000")
+add(block_7_3)
+
+block_1_4 = Rectangle(200,40)
+block_1_4.set_position(40, 160)
+block_1_4.set_color("#8B0000")
+add(block_1_4)
+
+block_8_4 = Rectangle(200,40)
+block_8_4.set_position(360, 160)
+block_8_4.set_color("#8B0000")
+add(block_8_4)
+
+block_7_5 = Rectangle(320,40)
+block_7_5.set_position(280, 200)
+block_7_5.set_color("#8B0000")
+add(block_7_5)
+
+block_1_6 = Rectangle(40,40)
+block_1_6.set_position(40, 240)
+block_1_6.set_color("#8B0000")
+add(block_1_6)
+
+block_3_6 = Rectangle(480,40)
+block_3_6.set_position(120, 240)
+block_3_6.set_color("#8B0000")
+add(block_3_6)
+
+block_11_7 = Rectangle(40,40)
+block_11_7.set_position(440, 280)
+block_11_7.set_color("#8B0000")
+add(block_11_7)
+
+block_10_8 = Rectangle(360,40)
+block_10_8.set_position(40, 320)
+block_10_8.set_color("#8B0000")
+add(block_10_8)
+
+block_11_8 = Rectangle(40,40)
+block_11_8.set_position(440, 320)
+block_11_8.set_color("#8B0000")
+add(block_11_8)
+
+block_13_8 = Rectangle(40,40)
+block_13_8.set_position(520, 320)
+block_13_8.set_color("#8B0000")
+add(block_13_8)
+
+block_11_9 = Rectangle(40,40)
+block_11_9.set_position(440, 360)
+block_11_9.set_color("#8B0000")
+add(block_11_9)
+
+block_1_10 = Rectangle(120,40)
+block_1_10.set_position(40, 400)
+block_1_10.set_color("#8B0000")
+add(block_1_10)
+
+block_5_10 = Rectangle(200,40)
+block_5_10.set_position(200, 400)
+block_5_10.set_color("#8B0000")
+add(block_5_10)
+
+block_13_9 = Rectangle(40,40)
+block_13_9.set_position(520, 360)
+block_13_9.set_color("#8B0000")
+add(block_13_9)
+
+block_13_10 = Rectangle(40,40)
+block_13_10.set_position(520, 400)
+block_13_10.set_color("#8B0000")
+add(block_13_10)
+
+
+# Control the mouse click:
+
+def start_game(x,y):
+    remove(game_text)
+    remove(game_text2)
+
+game_text = Text("<< Click Here to Start >>")
+game_text.set_position((width/2) - 100, height - 25)
+game_text.set_font("15pt Futura")
+add(game_text)
+
+game_text2 = Text("Reach the Green Goal Using Arrow Keys")
+game_text2.set_position((width/2) - 160, height - 5)
+game_text2.set_font("15pt Futura")
+add(game_text2)
+
+add_mouse_click_handler(start_game)
+
+
+# Control the keyboard keys:
+
+def move_block(event):
+    global game
+    if event.key == "ArrowLeft" and my_block.get_x() != 40:
+        my_block.move(-40, 0)
+
+    if event.key == "ArrowRight":
+        my_block.move(40,0)
+
+    if event.key == "ArrowUp" and my_block.get_y() != 40:
+        my_block.move(0, -40)
+
+    if event.key == "ArrowDown" and my_block.get_y() != (height - 80):
+        my_block.move(0,40)
+
+add_key_down_handler(move_block)
