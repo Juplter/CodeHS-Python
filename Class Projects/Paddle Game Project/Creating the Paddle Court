@@ -1,0 +1,61 @@
+# Set the size of a screen:
+width = 600
+height = 500
+
+set_size(600,500)
+
+left_border = Rectangle(40,height)
+left_border.set_color(Color.red)
+add(left_border)
+
+top_border = Rectangle(width,40)
+top_border.set_color(Color.red)
+add(top_border)
+
+bottom_border = Rectangle(width,40)
+bottom_border.set_position(0,height-40)
+bottom_border.set_color(Color.red)
+add(bottom_border)
+
+right_border = Rectangle(40,height)
+right_border.set_position(width-40,0)
+right_border.set_color(Color.red)
+add(right_border)
+
+title = Text("PADDLE GAME")
+title.set_position((width/2)-235,25)
+add(title)
+
+
+#Controlling the Keyboard:
+
+def move_paddle(keyboard):
+    if keyboard.key == "a" and paddle_left.get_y() != 40:
+        paddle_left.move(0,-10)
+    
+    
+    if keyboard.key == "z" and paddle_left.get_y() != (height - 140):
+        paddle_left.move(0,10)
+    
+    
+    if keyboard.key == "ArrowUp" and paddle_right.get_y() != 40:
+        paddle_right.move(0,-10)
+    
+    
+    if keyboard.key == "ArrowDown" and paddle_right.get_y() != (height - 140):
+        paddle_right.move(0,10)
+        
+add_key_down_handler(move_paddle)
+    
+
+#Paddle Size:
+
+paddle_left = Rectangle(20,100 )
+paddle_left.set_position(50,(height/2)-50)
+paddle_left.set_color(Color.green)
+add(paddle_left)
+
+paddle_right = Rectangle(20,100 )
+paddle_right.set_position(width-70,(height/2)-50)
+add(paddle_right)
+paddle_right.set_color(Color.blue)
