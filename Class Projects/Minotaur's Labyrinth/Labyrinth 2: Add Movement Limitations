@@ -1,0 +1,103 @@
+# Screen Setup:
+
+width = 640
+height = 480
+set_size(width,height)
+
+
+# Game Simulation
+
+labyrinth = [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,"□",0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+            [1,0,1,1,1,0,1,1,1,1,1,0,1,1,0,1],
+            [1,0,1,1,0,0,0,1,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1],
+            [1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
+            [1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1],
+            [1,1,1,1,0,1,1,1,1,1,0,0,0,1,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            ]
+            
+for row in range(12):
+    for column in range(16):
+        if labyrinth[row][column] == 1:
+            block = Rectangle(40,40)
+            block.set_position(40*column, 40*row)
+            block.set_color("#8B0000")
+            add(block)
+
+row = 1
+column = 1
+ 
+# Map System
+
+end_block = Rectangle(40,40)
+end_block.set_position(560,400)
+end_block.set_color(Color.green)
+add(end_block)
+
+my_block = Rectangle(40,40)
+my_block.set_position(40,40)
+my_block.set_color(Color.red)
+add(my_block)
+
+title = Text("The Minotaur's Labyrinth")
+title.set_position((width/2)-175,25)
+title.set_font("25pt Futura")
+add(title)
+
+
+# Control the mouse click:
+
+def start_game(x,y):
+    remove(game_text)
+    remove(game_text2)
+
+game_text = Text("<< Click Here to Start >>")
+game_text.set_position((width/2) - 175, height/2)
+game_text.set_font("25pt Futura")
+add(game_text)
+
+game_text2 = Text("Reach the Green Goal Using Arrow Keys")
+game_text2.set_position((width/2) - 220, height - 5)
+game_text2.set_font("20pt Futura")
+add(game_text2)
+
+add_mouse_click_handler(start_game)            
+            
+# Control the keyboard keys:
+
+def move_block(event):
+    global labyrinth
+    global row
+    global column
+    
+    if event.key == "ArrowLeft" and labyrinth[row][column - 1] == 0:
+        my_block.move(-40, 0)
+        labyrinth[row][column] = 0
+        column -= 1
+        labyrinth[row][column] = "□"
+        
+    if event.key == "ArrowRight" and labyrinth[row][column + 1] == 0:
+        my_block.move(40,0)
+        labyrinth[row][column] = 0
+        column += 1
+        labyrinth[row][column] = "□"
+
+    if event.key == "ArrowUp" and my_block.get_y() != 40 and labyrinth[row - 1][column] == 0:
+        my_block.move(0, -40)
+        labyrinth[row][column] = 0
+        row -= 1
+        labyrinth[row][column] = "□"
+
+    if event.key == "ArrowDown" and my_block.get_y() != (height - 80) and labyrinth[row + 1][column] == 0:
+        my_block.move(0,40)
+        labyrinth[row][column] = 0
+        row += 1
+        labyrinth[row][column] = "□"
+
+add_key_down_handler(move_block)
