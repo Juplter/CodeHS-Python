@@ -1,0 +1,1159 @@
+import random
+# Screen Setup:
+
+width = 760
+height = 840
+set_size(width,height)
+
+background = Rectangle(width,height)
+background.set_color(Color.black)
+add(background)
+
+arena = [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1],
+            [1,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,1,0,1],
+            [1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1],
+            [1,0,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,0,1],
+            [1,0,1,"O",0,0,0,0,0,1,0,0,0,0,0,"O",1,0,1],
+            [1,0,1,0,1,1,0,1,1,1,1,1,0,1,1,0,1,0,1],
+            ["+",0,0,0,0,0,0,0,0,"",0,0,0,0,0,0,0,0,"+"],
+            [1,0,1,1,0,1,0,1,1,"",1,1,0,1,0,1,1,0,1],
+            [1,0,0,0,0,1,0,1,"","","",1,0,1,0,0,0,0,1],
+            [1,0,1,1,0,1,0,1,"","","",1,0,1,0,1,1,0,1],
+            [1,0,0,1,0,1,0,1,1,1,1,1,0,1,0,1,0,0,1],
+            [1,1,0,1,0,0,0,"","","","","",0,0,0,1,0,1,1],
+            ["+",0,0,1,0,1,1,1,0,1,0,1,1,1,0,1,0,0,"+"],
+            [1,0,1,1,0,1,0,0,0,"ᗤ",0,0,0,1,0,1,1,0,1],
+            [1,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0,0,1],
+            [1,0,1,0,1,1,0,1,0,1,0,1,0,1,1,0,1,0,1],
+            [1,0,1,"O",0,0,0,1,0,0,0,1,0,0,0,"O",1,0,1],
+            [1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            ]
+
+max_score = 0
+pellets_eaten = 0
+for row in range(21):
+    for column in range(19):
+        if arena[row][column] == 1:
+            block = Rectangle(40,40)
+            block.set_position(40*column, 40*row)
+            block.set_color("#1818FF")
+            add(block)
+        if arena[row][column] == 0:
+            pellet = Image("https://codehs.com/uploads/b1ad0e6fe5a39f75b73dec411b9b0a4c")
+            pellet.set_size(10, 10)
+            pellet.set_position((40*column) + 15, (40*row) + 15)
+            add(pellet)
+            max_score += 10
+        if arena[row][column] == "O":
+            pellet = Image("https://codehs.com/uploads/b1ad0e6fe5a39f75b73dec411b9b0a4c")
+            pellet.set_size(20, 20)
+            pellet.set_position((40*column) + 10, (40*row) + 10)
+            add(pellet)
+            max_score += 50
+        if arena[row][column] == "ᗤ":
+            pacman = Image("https://codehs.com/uploads/f2cb11c20d11f10c55cbe32b1fb01050")
+            pacman.set_size(40,40)
+            pacman.set_position(40*column, 40*row)
+            add(pacman)
+
+lives = 3
+for i in range(3):
+    life = Image("https://codehs.com/uploads/21112d320b6698b95fc084d33b1f9ca7")
+    life.set_size(40,40)
+    life.set_position(40*i, 800)
+    add(life)
+    
+# Score
+
+score = 0
+score_text = Text(str(score))
+score_text.set_font("30pt Rockwell")
+score_text.set_color(Color.white)
+score_text.set_position(10,35)
+add(score_text)
+points = 0
+point_amount = 200
+    
+open = False
+runtime = False
+won = False
+show_pellet = True
+game_end = False
+
+timer_left = False
+timer_right = False
+timer_up = False
+timer_down = False
+
+left = False
+right = False
+up = False
+down = False
+
+row = 14
+column = 9
+blinky_row = 7
+blinky_column =  9
+pinky_row = 9
+pinky_column = 9
+inky_row = 9
+inky_column = 8
+clyde_row = 9
+clyde_column = 10
+blinky_vulnerable = False
+pinky_vulnerable = False
+inky_vulnerable = False
+clyde_vulnerable = False
+
+
+# Displaying Pacman
+
+pacman_north = Image("https://codehs.com/uploads/77b70398977bc2cdc99c5f744996e747")
+pacman_north.set_size(40,40)
+
+pacman_east = Image("https://codehs.com/uploads/f35effc0414090706b69da235f797636")
+pacman_east.set_size(40,40)
+
+pacman_south = Image("https://codehs.com/uploads/09ac1870b354734f2dbb803b24be5385")
+pacman_south.set_size(40,40)
+
+pacman_west = Image("https://codehs.com/uploads/eea8bc49b46047b6b27876f45d4f6d22")
+pacman_west.set_size(40,40)
+
+open_pacman_north = Image("https://codehs.com/uploads/33a328dabfccade8a65521f775ac9575")
+open_pacman_north.set_size(40,40)
+
+# https://codehs.com/uploads/24d82ddca4f09a9cc3017e059d16c0ed
+open_pacman_east = Image("https://codehs.com/uploads/ef9b8a79ac6235a6e1d93351020130e7")
+open_pacman_east.set_size(40,40)
+
+open_pacman_south = Image("https://codehs.com/uploads/53bbcf7a6ff0f7490eb4c2e42c0787e7")
+open_pacman_south.set_size(40,40)
+
+# https://codehs.com/uploads/487bebff642ec11b77bd16737a32ddab
+open_pacman_west = Image("https://codehs.com/uploads/f226d9be4d60cf623c66b096248ecca2")
+open_pacman_west.set_size(40,40)
+
+
+# Control Pacman:
+
+def pacman_controller(event):
+    global arena
+    global pacman
+    global row
+    global column
+    global runtime
+    global game_end
+    global left
+    global right
+    global up
+    global down
+    global score
+    global max_score
+    global runtime
+    global won
+    global timer_left
+    global timer_right
+    global timer_up
+    global timer_down
+    global move_left
+    global move_right
+    global move_up
+    global move_down
+
+    if runtime == True:
+        if event.key == "ArrowLeft" and arena[row][column - 1] != 1:
+            left = True
+            right = False
+            up = False
+            down = False
+            
+            if timer_left == False:
+                move_left = timer.set_interval(pacman_left, 250)
+                timer_left = True
+            
+        if event.key == "ArrowRight" and arena[row][column + 1] != 1:
+            left = False
+            right = True
+            up = False
+            down = False
+            
+            if timer_right == False:
+                move_right = timer.set_interval(pacman_right, 250)
+                timer_right = True
+    
+        if event.key == "ArrowUp" and arena[row - 1][column] != 1:
+            left = False
+            right = False
+            up = True
+            down = False
+            
+            if timer_up == False:
+                move_up = timer.set_interval(pacman_up, 250)
+                timer_up = True
+    
+        if event.key == "ArrowDown" and arena[row + 1][column] != 1:
+            left = False
+            right = False
+            up = False
+            down = True
+            
+            if timer_down == False:
+                move_down = timer.set_interval(pacman_down, 250)
+                timer_down = True 
+      
+    fruits()      
+    if score >= max_score:
+        won = True
+        game_end = True
+        game_over()
+        pacman.set_position(column*40,row*40)
+        add(pacman)
+        print("You Win!")
+add_key_down_handler(pacman_controller)
+
+
+def pacman_left():
+    global pacman
+    global arena
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global left
+    global move_left
+    global timer_left
+    global empty
+    global score
+    global score_text
+    global pellets_eaten
+    global open
+    global runtime
+    if column == 0 and left == True:
+        pacman.move(720, 0)
+        arena[row][column] = "+"
+        column += 18
+        arena[row][column] = "ᗤ"
+    elif arena[row][column - 1] != 1 and left == True:
+        pacman.move(-40, 0)
+        arena[row][column] = ""
+        column -= 1
+        empty(column*40,row*40)
+        devour()
+        if arena[row][column] == 0:
+            score += 10
+            pellets_eaten += 1
+        elif arena[row][column] == "O":
+            score += 50
+            pellets_eaten += 1
+            gain_power()
+        elif arena[row][column] == "*":
+            consume_fruit()
+        arena[row][column] = "ᗤ"
+    score_text.set_text(score)
+    if left == False:
+        timer.clear_interval(move_left)
+        timer_left = False
+    if runtime == True:
+        if open == False:
+            remove(open_pacman_west)
+            pacman_west.set_position(pacman.get_x(),pacman.get_y())
+            add(pacman_west)
+            open = True
+        else:
+            remove(pacman_west)
+            open_pacman_west.set_position(pacman.get_x(),pacman.get_y())
+            add(open_pacman_west)
+            open = False
+    remove(pacman_north)
+    remove(pacman_east)
+    remove(pacman_south)
+    remove(open_pacman_north)
+    remove(open_pacman_east)
+    remove(open_pacman_south)
+    score_text.set_text(score+points)
+
+
+def pacman_right():
+    global pacman
+    global arena
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global right
+    global move_right
+    global timer_right
+    global score
+    global score_text
+    global pellets_eaten
+    global open
+    global runtime
+    if column == 18 and right == True:
+        pacman.move(-720, 0)
+        arena[row][column] = "+"
+        column -= 18
+        arena[row][column] = "ᗤ"
+    elif arena[row][column + 1] != 1 and right == True:
+        pacman.move(40, 0)
+        arena[row][column] = ""
+        column += 1
+        empty(column*40,row*40)
+        devour()
+        if arena[row][column] == 0:
+            score += 10
+            pellets_eaten += 1
+        elif arena[row][column] == "O":
+            score += 50
+            pellets_eaten += 1
+            gain_power()
+        elif arena[row][column] == "*":
+            consume_fruit()
+        arena[row][column] = "ᗤ"
+    score_text.set_text(score)
+    if right == False:
+        timer.clear_interval(move_right)
+        timer_right = False
+    if runtime == True:
+        if open == False:
+            remove(open_pacman_east)
+            pacman_east.set_position(pacman.get_x(),pacman.get_y())
+            add(pacman_east)
+            open = True
+        else:
+            remove(pacman_east)
+            open_pacman_east.set_position(pacman.get_x(),pacman.get_y())
+            add(open_pacman_east)
+            open = False
+    remove(pacman_north)
+    remove(pacman_south)
+    remove(pacman_west)
+    remove(open_pacman_north)
+    remove(open_pacman_south)
+    remove(open_pacman_west)
+    score_text.set_text(score+points)
+     
+        
+def pacman_up():
+    global pacman
+    global arena
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global up
+    global move_up
+    global timer_up
+    global score
+    global score_text
+    global pellets_eaten
+    global open
+    global runtime
+    if arena[row - 1][column] != 1 and up == True:
+        pacman.move(0, -40)
+        arena[row][column] = ""
+        row -= 1
+        empty(column*40,row*40)
+        devour()
+        if arena[row][column] == 0:
+            score += 10
+            pellets_eaten += 1
+        elif arena[row][column] == "O":
+            score += 50
+            pellets_eaten += 1
+            gain_power()
+        elif arena[row][column] == "*":
+            consume_fruit()
+        arena[row][column] = "ᗤ"
+    score_text.set_text(score)
+    if up == False:
+        timer.clear_interval(move_up)
+        timer_up = False
+    if runtime == True:
+        if open == False:
+            remove(open_pacman_north)
+            pacman_north.set_position(pacman.get_x(),pacman.get_y())
+            add(pacman_north)
+            open = True
+        else:
+            remove(pacman_north)
+            open_pacman_north.set_position(pacman.get_x(),pacman.get_y())
+            add(open_pacman_north)
+            open = False
+    remove(pacman_east)
+    remove(pacman_south)
+    remove(pacman_west)
+    remove(open_pacman_east)
+    remove(open_pacman_south)
+    remove(open_pacman_west)
+    score_text.set_text(score+points)
+    
+        
+def pacman_down():
+    global pacman
+    global arena
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global down
+    global move_down
+    global timer_down
+    global score
+    global score_text
+    global pellets_eaten
+    global open
+    global runtime
+    if arena[row + 1][column] != 1 and down == True:
+        pacman.move(0,40)
+        arena[row][column] = ""
+        row += 1
+        empty(column*40,row*40)
+        devour()
+        if arena[row][column] == 0:
+            score += 10
+            pellets_eaten += 1
+        elif arena[row][column] == "O":
+            score += 50
+            pellets_eaten += 1
+            gain_power()
+        elif arena[row][column] == "*":
+            consume_fruit()
+        arena[row][column] = "ᗤ"
+    score_text.set_text(score)
+    if down == False:
+        timer.clear_interval(move_down)
+        timer_down = False
+    if runtime == True:
+        if open == False:
+            remove(open_pacman_south)
+            pacman_south.set_position(pacman.get_x(),pacman.get_y())
+            add(pacman_south)
+            open = True
+        else:
+            remove(pacman_south)
+            open_pacman_south.set_position(pacman.get_x(),pacman.get_y())
+            add(open_pacman_south)
+            open = False
+    remove(pacman_north)
+    remove(pacman_east)
+    remove(pacman_west)
+    remove(open_pacman_north)
+    remove(open_pacman_east)
+    remove(open_pacman_west)
+    score_text.set_text(score+points)
+
+
+move_left = timer.set_interval(pacman_left, 1)
+timer.clear_interval(move_left)
+
+move_right = timer.set_interval(pacman_right, 1)
+timer.clear_interval(move_right)
+
+move_up = timer.set_interval(pacman_up, 1)
+timer.clear_interval(move_up)
+
+move_down = timer.set_interval(pacman_down, 1)
+timer.clear_interval(move_down)
+
+
+# Displaying the Ghosts
+
+blinky = Image("https://codehs.com/uploads/882026539d3f7d1e13dcb2f96fe4a1c9")
+blinky.set_size(40,40)
+blinky.set_position(40*blinky_column, 40*blinky_row)
+add(blinky)
+
+pinky = Image("https://codehs.com/uploads/88871c6e01147d24bf910937babb1978")
+pinky.set_size(40,40)
+pinky.set_position(40*pinky_column, 40*pinky_row)
+add(pinky)
+
+inky = Image("https://codehs.com/uploads/ce474d227251d50acfcc80dcb3b71838")
+inky.set_size(40,40)
+inky.set_position(40*inky_column, 40*inky_row)
+add(inky)
+
+clyde = Image("https://codehs.com/uploads/b8b158f9c5fbc58fa8adad87b4318453")
+clyde.set_size(40,40)
+clyde.set_position(40*clyde_column, 40*clyde_row)
+add(clyde)
+
+blinky_frightened = Image("https://codehs.com/uploads/bef2f925be135ebe18fa5949ce1b3d2e")
+blinky_frightened.set_size(40,40)
+pinky_frightened = Image("https://codehs.com/uploads/bef2f925be135ebe18fa5949ce1b3d2e")
+pinky_frightened.set_size(40,40)
+inky_frightened = Image("https://codehs.com/uploads/bef2f925be135ebe18fa5949ce1b3d2e")
+inky_frightened.set_size(40,40)
+clyde_frightened = Image("https://codehs.com/uploads/bef2f925be135ebe18fa5949ce1b3d2e")
+clyde_frightened.set_size(40,40)
+
+
+# Ghost Movement
+
+def blinky_controller():
+    global blinky
+    global blinky_frightened
+    global arena
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global empty
+    global runtime
+    global blinky_vulnerable
+    direction = random.randint(1,4)
+     
+    if runtime == True:      
+        if direction == 1:
+            if blinky_column == 0:
+                blinky_column += 18
+            elif arena[blinky_row][blinky_column - 1] != 1:
+                blinky_column -= 1
+        if direction == 2:
+            if blinky_column == 18:
+                blinky_column -= 18
+            elif arena[blinky_row][blinky_column + 1] != 1:
+                blinky_column += 1
+        if direction == 3:
+            if arena[blinky_row - 1][blinky_column] != 1:
+                blinky_row -= 1
+        if direction == 4:
+            if arena[blinky_row + 1][blinky_column] != 1:
+                blinky_row += 1
+        if blinky_vulnerable == True:
+            remove(blinky_frightened)
+            remove(blinky)
+            blinky_frightened.set_position(40*blinky_column,40*blinky_row)
+            add(blinky_frightened)
+        if blinky_vulnerable == False:
+            remove(blinky_frightened)
+            remove(blinky)  
+            blinky.set_position(40*blinky_column,40*blinky_row)
+            add(blinky)
+        devour()
+blinky_move = timer.set_interval(blinky_controller, 225)
+
+
+def pinky_controller():
+    global pinky
+    global pinky_frightened
+    global arena
+    global row
+    global column
+    global pinky_row
+    global pinky_column
+    global empty
+    global runtime
+    global pinky_vulnerable
+    direction = random.randint(1,4)
+    
+    if runtime == True:
+        if direction == 1:
+            if pinky_column == 0:
+                pinky_column += 18
+            elif arena[pinky_row][pinky_column - 1] != 1:
+                pinky_column -= 1
+        if direction == 2:
+            if pinky_column == 18:
+                pinky_column -= 18
+            elif arena[pinky_row][pinky_column + 1] != 1:
+                pinky_column += 1
+        if direction == 3:
+            if arena[pinky_row - 1][pinky_column] != 1:
+                pinky_row -= 1
+        if direction == 4:
+            if arena[pinky_row + 1][pinky_column] != 1:
+                pinky_row += 1
+        if pinky_vulnerable == True:
+            remove(pinky_frightened)
+            remove(pinky)
+            pinky_frightened.set_position(40*pinky_column,40*pinky_row)
+            add(pinky_frightened)
+        if pinky_vulnerable == False:
+            remove(pinky_frightened)
+            remove(pinky)  
+            pinky.set_position(40*pinky_column,40*pinky_row)
+            add(pinky)
+        devour()
+pinky_move = timer.set_interval(pinky_controller, 225)
+
+
+def inky_controller():
+    global inky
+    global inky_frightened
+    global arena
+    global row
+    global column
+    global inky_row
+    global inky_column
+    global empty
+    global runtime
+    global inky_vulnerable
+    direction = random.randint(1,4)
+    
+    if runtime == True:
+        if direction == 1:
+            if inky_column == 0:
+                inky_column += 18
+            elif arena[inky_row][inky_column - 1] != 1:
+                inky_column -= 1
+        if direction == 2:
+            if inky_column == 18:
+                inky_column -= 18
+            elif arena[inky_row][inky_column + 1] != 1:
+                inky_column += 1
+        if direction == 3:
+            if arena[inky_row - 1][inky_column] != 1:
+                inky_row -= 1
+        if direction == 4:
+            if arena[inky_row + 1][inky_column] != 1:
+                inky_row += 1
+        if inky_vulnerable == True:
+            remove(inky_frightened)
+            remove(inky)
+            inky_frightened.set_position(40*inky_column,40*inky_row)
+            add(inky_frightened)
+        if inky_vulnerable == False:
+            remove(inky_frightened)
+            remove(inky)  
+            inky.set_position(40*inky_column,40*inky_row)
+            add(inky)
+        devour()
+inky_move = timer.set_interval(inky_controller, 225)
+
+
+def clyde_controller():
+    global clyde
+    global clyde_frightened
+    global arena
+    global row
+    global column
+    global clyde_row
+    global clyde_column
+    global empty
+    global runtime
+    global ghpst_mover
+    global clyde_vulnerable
+    direction = random.randint(1,4)
+    
+    if runtime == True:
+        if direction == 1:
+            if clyde_column == 0:
+                clyde_column += 18
+            elif arena[clyde_row][clyde_column - 1] != 1:
+                clyde_column -= 1
+        if direction == 2:
+            if clyde_column == 18:
+                clyde_column -= 18
+            elif arena[clyde_row][clyde_column + 1] != 1:
+                clyde_column += 1
+        if direction == 3:
+            if arena[clyde_row - 1][clyde_column] != 1:
+                clyde_row -= 1
+        if direction == 4:
+            if arena[clyde_row + 1][clyde_column] != 1:
+                clyde_row += 1
+        if clyde_vulnerable == True:
+            remove(clyde_frightened)
+            remove(clyde)
+            clyde_frightened.set_position(40*clyde_column,40*clyde_row)
+            add(clyde_frightened)
+        if clyde_vulnerable == False:
+            remove(clyde_frightened)
+            remove(clyde)  
+            clyde.set_position(40*clyde_column,40*clyde_row)
+            add(clyde)
+        devour()
+clyde_move = timer.set_interval(clyde_controller, 225)
+
+
+# Landing on Ghosts
+
+def devour():
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global pinky_row
+    global pinky_column
+    global inky_row
+    global inky_column
+    global clyde_row
+    global clyde_column
+    global blinky_vulnerable
+    global pinky_vulnerable
+    global inky_vulnerable
+    global clyde_vulnerable
+    global points
+    global point_amount
+    devoured = False
+    if (row == blinky_row) and (column == blinky_column) and blinky_vulnerable == False:
+        game_over()
+    elif (row == blinky_row) and (column == blinky_column) and blinky_vulnerable == True:
+        blinky_row = 9
+        blinky_column = 9
+        blinky_vulnerable = False
+        devoured = True
+    if (row == pinky_row) and (column == pinky_column) and pinky_vulnerable == False:
+        game_over()
+    elif (row == pinky_row) and (column == pinky_column) and pinky_vulnerable == True:
+        pinky_row = 9
+        pinky_column = 9
+        pinky_vulnerable = False
+        devoured = True
+    if (row == inky_row) and (column == inky_column) and inky_vulnerable == False:
+        game_over()
+    elif (row == inky_row) and (column == inky_column) and inky_vulnerable == True:
+        inky_row = 9
+        inky_column = 8
+        inky_vulnerable = False
+        devoured = True
+    if (row == clyde_row) and (column == clyde_column) and clyde_vulnerable == False:
+        game_over()
+    elif (row == clyde_row) and (column == clyde_column) and clyde_vulnerable == True:
+        clyde_row = 9
+        clyde_column = 10
+        clyde_vulnerable = False
+        devoured = True
+    if devoured == True:
+        points += point_amount
+        display_points(point_amount, (40*column)+5, (40*row)+25, "#04D9FF")
+        if point_amount < 1600:
+            point_amount *= 2
+
+
+# Displaying Power Pellets
+
+def reveal_energizer(x,y):
+    global arena
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global pinky_row
+    global pinky_column
+    global inky_row
+    global inky_column
+    global clyde_row
+    global clyde_column
+    energizer_row = int(x/40)
+    energizer_column = int(y/40)
+    if arena[energizer_column][energizer_row] == "O":
+        if (row != energizer_column or column != energizer_row) and (blinky_row != energizer_column or blinky_column != energizer_row) and (pinky_row != energizer_column or pinky_column != energizer_row) and (inky_row != energizer_column or inky_column != energizer_row) and (clyde_row != energizer_column or clyde_column != energizer_row):
+            pellet = Image("https://codehs.com/uploads/b1ad0e6fe5a39f75b73dec411b9b0a4c")
+            pellet.set_size(20, 20)
+            pellet.set_position(x + 10,y + 10)
+            add(pellet)
+    
+def remove_energizer(x,y):
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global pinky_row
+    global pinky_column
+    global inky_row
+    global inky_column
+    global clyde_row
+    global clyde_column
+    energizer_row = int(x/40)
+    energizer_column = int(y/40)
+    if arena[energizer_column][energizer_row] == "O":
+        if (row != energizer_column or column != energizer_row) and (blinky_row != energizer_column or blinky_column != energizer_row) and (pinky_row != energizer_column or pinky_column != energizer_row) and (inky_row != energizer_column or inky_column != energizer_row) and (clyde_row != energizer_column or clyde_column != energizer_row):
+            empty(x, y)
+
+def flicker():
+    global runtime
+    global show_pellet
+    if runtime == True:
+        if show_pellet == True:
+            reveal_energizer(40*3,40*5)
+            reveal_energizer(40*15,40*5)
+            reveal_energizer(40*3,40*17)
+            reveal_energizer(40*15,40*17)
+            show_pellet = False
+        else:
+            remove_energizer(40*3,40*5)
+            remove_energizer(40*15,40*5)
+            remove_energizer(40*3,40*17)
+            remove_energizer(40*15,40*17)
+            show_pellet = True
+flasher = timer.set_interval(flicker, 500)
+
+
+# Power Pellets
+
+def gain_power():
+    global lost
+    global blinky_row
+    global blinky_column
+    global blinky_vulnerable
+    global pinky_vulnerable
+    global inky_vulnerable
+    global clyde_vulnerable
+    blinky_vulnerable = True
+    pinky_vulnerable = True
+    inky_vulnerable = True
+    clyde_vulnerable = True
+    lost = timer.set_interval(lose_power, 4000)
+    
+def lose_power():
+    global lost
+    global blinky
+    global blinky_row
+    global blinky_column
+    global point_amount
+    global blinky_vulnerable
+    global pinky_vulnerable
+    global inky_vulnerable
+    global clyde_vulnerable
+    blinky_vulnerable = False
+    pinky_vulnerable = False
+    inky_vulnerable = False
+    clyde_vulnerable = False
+    blinky.set_size(40,40)
+    blinky.set_position(40*blinky_column,40*blinky_row)
+    add(blinky)
+    point_amount = 200
+    timer.clear_interval(lost)
+
+lost = timer.set_interval(lose_power,1)
+timer.clear_interval(lost)
+
+
+# Fruits
+
+fruit_type = 0
+fruit_points = 0
+first_fruit = False
+second_fruit = False
+
+def fruits():
+    global arena
+    global pellets_eaten
+    global first_fruit
+    global second_fruit
+    if pellets_eaten >= 70 and first_fruit == False:
+        first_fruit = True
+        spawn_fruit()
+        
+    if pellets_eaten >= 170 and second_fruit == False and arena[12][9] != "*":
+        second_fruit = True
+        spawn_fruit()
+
+def spawn_fruit():
+    global arena
+    global fruit_type
+    global fruit_points
+    global slice_fruit
+    global runtime
+    
+    fruit_type = random.randint(1,8)
+    arena[12][9] = "*"
+    if fruit_type == 1:
+        fruit = Image("https://codehs.com/uploads/4664a6753974deb77dd3f85f4260baae")
+        fruit_points = 100
+    elif fruit_type == 2:
+        fruit = Image("https://codehs.com/uploads/68a8ed447bca2b2c00ff57c9d3c217a0")
+        fruit_points = 300
+    elif fruit_type == 3:
+        fruit = Image("https://codehs.com/uploads/f973f12525e911f2baac58a8ec6f3887")
+        fruit_points = 500
+    elif fruit_type == 4:
+        fruit = Image("https://codehs.com/uploads/d066a8428bc93cf40b247a8b3174ee04")
+        fruit_points = 700
+    elif fruit_type == 5:
+        fruit = Image("https://codehs.com/uploads/c926137d09e0f7bf102257ffdbf2c689")
+        fruit_points = 1000
+    elif fruit_type == 6:
+        fruit = Image("https://codehs.com/uploads/55549335c44627dd21035b82c6c8b33d")
+        fruit_points = 2000
+    elif fruit_type == 7:
+        fruit = Image("https://codehs.com/uploads/2e410d0b3f1e672d1cfb6f2ccbcf7541")
+        fruit_points = 3000
+    elif fruit_type == 8:
+        fruit = Image("https://codehs.com/uploads/fee106dbeb5a00c849c2cd5f754ae079")
+        fruit_points = 5000
+    fruit.set_size(40,40)
+    fruit.set_position(360,480)
+    add(fruit)
+    slice_fruit = timer.set_interval(remove_fruit, 10000)
+    
+def remove_fruit():
+    global arena
+    global slice_fruit
+    global runtime
+    if arena[12][9] == "*" and runtime == True:
+        arena[12][9] = ""
+        empty(360,480)
+        timer.clear_interval(slice_fruit)
+slice_fruit = timer.set_interval(remove_fruit, 10000)
+timer.clear_interval(slice_fruit)
+        
+def consume_fruit():
+    global points
+    global fruit_points
+    points += fruit_points
+    display_points(fruit_points,365,505,"#FFA500")
+
+# Clearing a Tile
+
+def empty(x, y):
+    empty = Rectangle(40,40)
+    empty.set_color(Color.black)
+    empty.set_position(x,y)
+    add(empty)
+    
+    
+# Showing Points
+
+def display_points(text, x, y, color):
+    global point_remover
+    point_text = Text(text)
+    point_text.set_position(x,y)
+    point_text.set_font("12pt Rockwell")
+    point_text.set_color(color)
+    add(point_text)
+
+
+# Pacman Death Animation
+
+pacman_state = 0
+dying = False
+died = False
+pacman_death0 = Image("https://codehs.com/uploads/d4fe6d5aea8d64aaafafa6a3179f102d")
+pacman_death0.set_size(40,40)
+pacman_death1 = Image("https://codehs.com/uploads/a4ae4948d0df81010d5c805dd77bc235")
+pacman_death1.set_size(40,40)
+pacman_death2 = Image("https://codehs.com/uploads/9cb34f823e6eee61e75ce14ddc85e807")
+pacman_death2.set_size(40,40)
+pacman_death3 = Image("https://codehs.com/uploads/0b0a5caf4fb99e8164f377af105b867a")
+pacman_death3.set_size(40,40)
+pacman_death4 = Image("https://codehs.com/uploads/70fe76ddd5e260dd33118d6b4068eedc")
+pacman_death4.set_size(40,40)
+pacman_death5 = Image("https://codehs.com/uploads/70fe76ddd5e260dd33118d6b4068eedc")
+pacman_death5.set_size(40,40)
+def pacman_death():
+    global pacman_state
+    global dying
+    global death
+    global died
+    global row
+    global column
+    if dying == False:
+        death = timer.set_interval(pacman_death, 200)
+        dying = True
+    if pacman_state == 0:
+        pacman_state += 1
+        pacman_death0.set_position(column*40,row*40)
+        add(pacman_death0)
+    elif pacman_state == 1:
+        pacman_state += 1
+        pacman_death1.set_position(column*40,row*40)
+        add(pacman_death1)
+    elif pacman_state == 2:
+        pacman_state += 1
+        pacman_death2.set_position(column*40,row*40)
+        add(pacman_death2)
+    elif pacman_state == 3:
+        pacman_state += 1
+        pacman_death3.set_position(column*40,row*40)
+        add(pacman_death3)
+    elif pacman_state == 4:
+        pacman_state += 1
+        pacman_death4.set_position(column*40,row*40)
+        add(pacman_death4)
+    elif pacman_state == 5:
+        pacman_state += 1
+        pacman_death5.set_position(column*40,row*40)
+        add(pacman_death5)
+    else:
+        timer.clear_interval(death)
+        died = True
+        dying = False
+        game_over()
+            
+
+# Starting the Game:
+def start_game(x,y):
+    global runtime
+    global runtime
+    global runtime
+    global game_end
+    remove(title)
+    remove(ready_text)
+    if game_end == False:
+        runtime = True
+add_mouse_click_handler(start_game)     
+
+title = Image("https://codehs.com/uploads/46068d27accd7798052724d58390c1d3")
+title.set_size(616,328)
+title.set_position(95,30)
+add(title)
+
+ready_text = Image("https://codehs.com/uploads/49d017e1c170ea144b457095d4f778b9")
+ready_text.set_size(175,35)
+ready_text.set_position((width/2) - 80,(height/2) + 60)
+add(ready_text)
+
+'''
+pellets_eaten = 100
+fruits()
+'''
+
+
+# Resetting the Game
+
+def setup_game():
+    global arena
+    global pacman
+    global lives
+    global life
+    global row
+    global column
+    global blinky_row
+    global blinky_column
+    global pinky_row
+    global pinky_column
+    global inky_row
+    global inky_column
+    global clyde_row
+    global clyde_column
+    global blinky_vulnerable
+    global pinky_vulnerable
+    global inky_vulnerable
+    global clyde_vulnerable
+    global blinky
+    global pinky
+    global inky
+    global clyde
+    global open
+    global runtime
+    global won
+    global show_pellet
+    global timer_left
+    global timer_right
+    global timer_up
+    global timer_down
+    global left
+    global right
+    global up
+    global down
+    global ready_text
+    
+    pacman.set_position(40*9, 40*14)
+    add(pacman)
+    
+    for i in range(lives):
+        life.set_position(40*i, 800)
+        add(life)
+        
+    open = False
+    won = False
+    show_pellet = True
+    
+    timer_left = False
+    timer_right = False
+    timer_up = False
+    timer_down = False
+    
+    left = False
+    right = False
+    up = False
+    down = False
+    
+    row = 14
+    column = 9
+    blinky_row = 7
+    blinky_column =  9
+    pinky_row = 9
+    pinky_column = 9
+    inky_row = 9
+    inky_column = 8 
+    clyde_row = 9
+    clyde_column = 10
+    blinky_vulnerable = False
+    pinky_vulnerable = False
+    inky_vulnerable = False
+    clyde_vulnerable = False
+    
+    blinky.set_position(40*blinky_column, 40*blinky_row)
+    add(blinky)
+    
+    pinky.set_position(40*pinky_column, 40*pinky_row)
+    add(pinky)
+    
+    inky.set_position(40*inky_column, 40*inky_row)
+    add(inky)
+    
+    clyde.set_position(40*clyde_column, 40*clyde_row)
+    add(clyde)
+    
+    add(ready_text)
+
+
+# Ending the Game
+
+def game_over():
+    global move_left
+    global move_right
+    global move_up
+    global move_down
+    global runtime
+    global game_end
+    global lives
+    global won
+    global column
+    global row
+    global width
+    global height
+    global pacman_state
+    global died
+    runtime = False
+    timer.clear_interval(move_left)
+    timer.clear_interval(move_right)
+    timer.clear_interval(move_up)
+    timer.clear_interval(move_down)
+    remove(pacman_north)
+    remove(pacman_east)
+    remove(pacman_south)
+    remove(pacman_west)
+    remove(open_pacman_north)
+    remove(open_pacman_east)
+    remove(open_pacman_south)
+    remove(open_pacman_west)
+    remove(blinky)
+    remove(pinky)
+    remove(inky)
+    remove(clyde)
+    remove(blinky_frightened)
+    remove(pinky_frightened)
+    remove(inky_frightened)
+    remove(clyde_frightened)
+    empty(column*40,row*40)
+    pacman_state = 0
+    if died == False and won == False:
+        pacman_death()
+    else:
+        if won == False:
+            if lives > 0:
+                setup_game()
+                lives -= 1
+                block = Rectangle(40,40)
+                block.set_position(40*lives, 800)
+                block.set_color("#1818FF")
+                add(block)
+            if lives == 0:
+                game_end = True
+                start_game(5,5)
+                game_over_text = Image("https://codehs.com/uploads/0844c70f9b7729c0c4833a34e138273b")
+                game_over_text.set_size(400,300)
+                game_over_text.set_position(width/2 - 200,height/2 - 150)
+                add(game_over_text)
+                print("Game Over")
+    died = False
