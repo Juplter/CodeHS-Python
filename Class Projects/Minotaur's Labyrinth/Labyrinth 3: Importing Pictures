@@ -1,0 +1,7 @@
+karel=Image("https://codehs.com/uploads/d203ee4414d01b870582bd751432e62c")
+
+karel.set_size(50,50)
+
+karel.set_position(0,0)
+
+add(karel)
