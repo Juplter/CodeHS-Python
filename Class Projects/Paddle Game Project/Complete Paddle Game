@@ -1,0 +1,236 @@
+import random
+# Set the Screen:
+width = 600
+height = 500
+set_size(width, height)
+
+background = Rectangle(width, height)
+background.set_color("#060D11")
+add(background)
+
+ball = Circle(10)
+ball.set_position((width/2) - 5, (height/2) - 5)
+ball.set_color("#BABDFF")
+add(ball)
+
+left_border = Rectangle(20,height)
+left_border.set_color("#1B3444")
+add(left_border)
+
+top_border = Rectangle(width,40)
+top_border.set_color("#1B3444")
+add(top_border)
+
+bottom_border = Rectangle(width,40)
+bottom_border.set_position(0,height-40)
+bottom_border.set_color("#1B3444")
+add(bottom_border)
+
+right_border = Rectangle(20,height)
+right_border.set_position(width-20,0)
+right_border.set_color("#1B3444")
+add(right_border)
+
+
+# Set the Text:
+title = Text("PADDLE GAME")
+title.set_position((width/2)-235,25)
+title.set_font("20pt Futura")
+title.set_color(Color.white)
+add(title)
+
+name = Text("By: CodeHS-Solutions")
+name.set_position((width/2),25)
+name.set_font("20pt Futura")
+name.set_color(Color.white)
+add(name)
+
+game_text = Text("Click to begin and move the paddle.")
+game_text.set_position((width/2) - 200, (height/2) - 150)
+game_text.set_font("17pt Rockwell")
+game_text.set_color(Color.white)
+add(game_text)
+
+game_message = Text("The first participant to reach 15 points wins!")
+game_message.set_position((width/2) - 240, (height/2) - 120)
+game_message.set_color(Color.white)
+game_message.set_font("17pt Rockwell")
+add(game_message)
+
+
+# Paddle Size:
+
+paddle_left = Rectangle(20,100)
+paddle_left.set_position(40,(height/2)-50)
+paddle_left.set_color("#CED0FF")
+add(paddle_left)
+
+paddle_left_top = Circle(10)
+paddle_left_top.set_position(50, (height/2) - 50)
+paddle_left_top.set_color("#CED0FF")
+add(paddle_left_top)
+
+paddle_left_bottom = Circle(10)
+paddle_left_bottom.set_position(50, (height/2) + 50)
+paddle_left_bottom.set_color("#CED0FF")
+add(paddle_left_bottom)
+
+paddle_right = Rectangle(20, 100)
+paddle_right.set_position(width - 60, (height/2) - 50)
+add(paddle_right)
+paddle_right.set_color("#CED0FF")
+
+paddle_right_top = Circle(10)
+paddle_right_top.set_position(width - 50, (height/2) - 50)
+paddle_right_top.set_color("#CED0FF")
+add(paddle_right_top)
+
+paddle_right_bottom = Circle(10)
+paddle_right_bottom.set_position(width - 50, (height/2) + 50)
+paddle_right_bottom.set_color("#CED0FF")
+add(paddle_right_bottom)
+
+
+# Score Management
+
+scores=[0,0]
+
+score_left = Text(scores[0])
+score_left.set_position(40, height - 10)
+score_left.set_color(Color.white)
+add(score_left)
+
+score_right = Text(scores[1])
+score_right.set_position(width - 55, height - 10)
+score_right.set_color(Color.white)
+add(score_right)
+
+
+# Controlling the Keyboard:
+
+def move_paddle(keyboard):
+    if keyboard.key == "a" and paddle_left.get_y() != 50:
+        paddle_left_top.move(0, -10)
+        paddle_left.move(0,-10)
+        paddle_left_bottom.move(0, -10)
+    
+    
+    if keyboard.key == "z" and paddle_left.get_y() != (height - 150):
+        paddle_left_top.move(0, 10)
+        paddle_left.move(0,10)
+        paddle_left_bottom.move(0, 10)
+    
+    
+    if keyboard.key == "ArrowUp" and paddle_right.get_y() != 50:
+        paddle_right_top.move(0, -10)
+        paddle_right.move(0,-10)
+        paddle_right_bottom.move(0, -10)
+    
+    
+    if keyboard.key == "ArrowDown" and paddle_right.get_y() != (height - 150):
+        paddle_right_top.move(0, 10)
+        paddle_right.move(0,10)
+        paddle_right_bottom.move(0, 10)
+        
+add_key_down_handler(move_paddle)
+
+
+# Moving the Ball
+
+slant = random.uniform(-4, 4)
+speed = 5
+moving_right = [True]
+gameover = [False]
+ball_rolls = [False]
+
+def move_ball():
+    global speed
+    global slant
+    if ball_rolls[0]:
+        if moving_right[0]:
+            if ball.get_x() < width:
+                ball.move(speed, slant)
+            else:
+                scores[0] += 1
+                reset_ball("Left player wins play, click to continue.")
+        else:
+            if ball.get_x() > 0:
+                ball.move(-speed,slant)
+            else:
+                scores[1] += 1
+                reset_ball("Right player wins play, click to continue.")
+        direction()
+
+
+# Changing the Direction
+
+def direction():
+    global slant
+    if moving_right[0] == True:
+        if ((ball.get_x() + 10) >= paddle_right.get_x()) and ((ball.get_x() + 10) <= (paddle_right.get_x() + 20)):
+            if (ball.get_y() >= (paddle_right.get_y() - 10)) and (ball.get_y() <= (paddle_right.get_y() + 20)):
+                moving_right[0] = False
+                slant = -4-abs(slant)
+            elif (ball.get_y() >= (paddle_right.get_y() + 80)) and (ball.get_y() <= (paddle_right.get_y() + 110)):
+                moving_right[0] = False
+                slant = 4+abs(slant)
+            elif (ball.get_y() >= (paddle_right.get_y() - 10)) and (ball.get_y() <= (paddle_right.get_y() + 110)):
+                moving_right[0] = False
+    else:
+        if ((ball.get_x() - 10) >= paddle_left.get_x()) and ((ball.get_x() - 10) <= (paddle_left.get_x() + 20)):
+            if (ball.get_y() >= (paddle_left.get_y() - 10)) and (ball.get_y() <= (paddle_left.get_y() + 40)):
+                moving_right[0] = True
+                slant = -4-abs(slant)
+            elif (ball.get_y() >= (paddle_left.get_y() + 80)) and (ball.get_y() <= (paddle_left.get_y() + 110)):
+                moving_right[0] = True
+                slant = 4+abs(slant)
+            elif (ball.get_y() >= (paddle_left.get_y() - 10)) and (ball.get_y() <= (paddle_left.get_y() + 110)):
+                moving_right[0] = True
+                
+    
+    if (ball.get_y() - 10) <= 40:
+        slant = -slant
+    
+    if (ball.get_y() + 10) >= (height - 40):
+        slant = -slant
+
+# Resetting the Game
+
+def reset_ball(message):
+    global speed
+    global slant
+    ball_rolls[0] = False
+    ball.set_position((width/2) - 5, (height/2) - 5)
+    speed += 0.5
+    slant = random.uniform(-4, 4)
+    game_message.set_text(message)
+    add(game_message)
+
+    score_left.set_text(scores[0])
+    score_right.set_text(scores[1])
+    
+    if moving_right[0]:
+        moving_right[0] = False
+    else:
+        moving_right[0] = True
+    
+    if scores[1] >= 15:
+        gameover[0] = True
+        game_message.set_text("Right Player Wins!")
+        
+    if scores[0] >= 15:
+        gameover[0] = True
+        game_message.set_text("Left Player Wins!")
+    
+
+# Starting the Game
+
+def start_game(x,y):
+    remove(game_text)
+    remove(game_message)
+    
+    if gameover[0] == False:
+        ball_rolls[0] = True
+
+add_mouse_click_handler(start_game)
+timer.set_interval(move_ball, 40)
