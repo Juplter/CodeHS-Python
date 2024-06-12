@@ -1,0 +1,19 @@
+karel_north = Image("https://codehs.com/uploads/329396a18537ec6078be68392124eef3")
+karel_north.set_size(50,50)
+karel_north.set_position(0,0)
+add(karel_north)
+
+karel_east = Image("https://codehs.com/uploads/7934b5abc735cfc6393d637f73a57245")
+karel_east.set_size(50,50)
+karel_east.set_position(0,50)
+add(karel_east)
+
+karel_south = Image("https://codehs.com/uploads/273a9a5db26db29ec0475550988ed2e1")
+karel_south.set_size(50,50)
+karel_south.set_position(0,100)
+add(karel_south)
+
+karel_west = Image("https://codehs.com/uploads/ce633cd17ef729b2669bd8efcf9a7941")
+karel_west.set_size(50,50)
+karel_west.set_position(0,150)
+add(karel_west)
