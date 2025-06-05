@@ -495,6 +495,77 @@ clyde_frightened.set_size(40,40)
 
 # Ghost Movement
 
+def can_move(ghost, direction):
+    global arena
+    global blinky_row
+    global blinky_column
+    global pinky_row
+    global pinky_column
+    global inky_row
+    global inky_column
+    global clyde_row
+    global clyde_column
+    if ghost == "blinky":
+        if direction == 1:
+            if blinky_column == 0 or arena[blinky_row][blinky_column - 1] != 1:
+                return True
+        elif direction == 2:
+            if blinky_column == 18 or arena[blinky_row][blinky_column + 1] != 1:
+                return True                
+        elif direction == 3:
+            if arena[blinky_row - 1][blinky_column] != 1:
+                return True                
+        elif direction == 4:
+            if arena[blinky_row + 1][blinky_column] != 1:
+                return True                
+        else:
+            return False
+    if ghost == "pinky":
+        if direction == 1:
+            if pinky_column == 0 or arena[pinky_row][pinky_column - 1] != 1:
+                return True
+        elif direction == 2:
+            if pinky_column == 18 or arena[pinky_row][pinky_column + 1] != 1:
+                return True                
+        elif direction == 3:
+            if arena[pinky_row - 1][pinky_column] != 1:
+                return True                
+        elif direction == 4:
+            if arena[pinky_row + 1][pinky_column] != 1:
+                return True                
+        else:
+            return False    
+    if ghost == "inky":
+        if direction == 1:
+            if inky_column == 0 or arena[inky_row][inky_column - 1] != 1:
+                return True
+        elif direction == 2:
+            if inky_column == 18 or arena[inky_row][inky_column + 1] != 1:
+                return True                
+        elif direction == 3:
+            if arena[inky_row - 1][inky_column] != 1:
+                return True                
+        elif direction == 4:
+            if arena[inky_row + 1][inky_column] != 1:
+                return True                
+        else:
+            return False
+    if ghost == "clyde":
+        if direction == 1:
+            if clyde_column == 0 or arena[clyde_row][clyde_column - 1] != 1:
+                return True
+        elif direction == 2:
+            if clyde_column == 18 or arena[clyde_row][clyde_column + 1] != 1:
+                return True                
+        elif direction == 3:
+            if arena[clyde_row - 1][clyde_column] != 1:
+                return True                
+        elif direction == 4:
+            if arena[clyde_row + 1][clyde_column] != 1:
+                return True                
+        else:
+            return False
+                
 def blinky_controller():
     global blinky
     global blinky_frightened
@@ -508,34 +579,40 @@ def blinky_controller():
     global blinky_vulnerable
     direction = random.randint(1,4)
      
-    if runtime == True:      
-        if direction == 1:
-            if blinky_column == 0:
-                blinky_column += 18
-            elif arena[blinky_row][blinky_column - 1] != 1:
-                blinky_column -= 1
-        if direction == 2:
-            if blinky_column == 18:
-                blinky_column -= 18
-            elif arena[blinky_row][blinky_column + 1] != 1:
-                blinky_column += 1
-        if direction == 3:
-            if arena[blinky_row - 1][blinky_column] != 1:
+    if runtime == True:
+        moved = False
+        while runtime == True and moved == False:
+            if direction == 1 and can_move("blinky", 1):
+                if blinky_column == 0:
+                    blinky_column += 18
+                else:
+                    blinky_column -= 1
+                moved = True
+            elif direction == 2 and can_move("blinky", 2):
+                if blinky_column == 18:
+                    blinky_column -= 18
+                else:
+                    blinky_column += 1
+                moved = True                
+            elif direction == 3 and can_move("blinky", 3):
                 blinky_row -= 1
-        if direction == 4:
-            if arena[blinky_row + 1][blinky_column] != 1:
+                moved = True
+            elif direction == 4 and can_move("blinky", 4):
                 blinky_row += 1
-        if blinky_vulnerable == True:
-            remove(blinky_frightened)
-            remove(blinky)
-            blinky_frightened.set_position(40*blinky_column,40*blinky_row)
-            add(blinky_frightened)
-        if blinky_vulnerable == False:
-            remove(blinky_frightened)
-            remove(blinky)  
-            blinky.set_position(40*blinky_column,40*blinky_row)
-            add(blinky)
-        devour()
+                moved = True
+            else:
+                direction = random.randint(1,4)
+    if blinky_vulnerable == True:
+        remove(blinky_frightened)
+        remove(blinky)
+        blinky_frightened.set_position(40*blinky_column,40*blinky_row)
+        add(blinky_frightened)
+    if blinky_vulnerable == False:
+        remove(blinky_frightened)
+        remove(blinky)  
+        blinky.set_position(40*blinky_column,40*blinky_row)
+        add(blinky)
+    devour()
 blinky_move = timer.set_interval(blinky_controller, 225)
 
 
@@ -553,32 +630,40 @@ def pinky_controller():
     direction = random.randint(1,4)
     
     if runtime == True:
-        if direction == 1:
-            if pinky_column == 0:
-                pinky_column += 18
-            elif arena[pinky_row][pinky_column - 1] != 1:
-                pinky_column -= 1
-        if direction == 2:
-            if pinky_column == 18:
-                pinky_column -= 18
-            elif arena[pinky_row][pinky_column + 1] != 1:
-                pinky_column += 1
-        if direction == 3:
-            if arena[pinky_row - 1][pinky_column] != 1:
+        moved = False
+        while runtime == True and moved == False:
+            if runtime == False:
+                break
+            if direction == 1 and can_move("pinky", 1):
+                if pinky_column == 0:
+                    pinky_column += 18
+                else:
+                    pinky_column -= 1
+                moved = True
+            elif direction == 2 and can_move("pinky", 2):
+                if pinky_column == 18:
+                    pinky_column -= 18
+                else:
+                    pinky_column += 1
+                moved = True                
+            elif direction == 3 and can_move("pinky", 3):
                 pinky_row -= 1
-        if direction == 4:
-            if arena[pinky_row + 1][pinky_column] != 1:
+                moved = True
+            elif direction == 4 and can_move("pinky", 4):
                 pinky_row += 1
-        if pinky_vulnerable == True:
-            remove(pinky_frightened)
-            remove(pinky)
-            pinky_frightened.set_position(40*pinky_column,40*pinky_row)
-            add(pinky_frightened)
-        if pinky_vulnerable == False:
-            remove(pinky_frightened)
-            remove(pinky)  
-            pinky.set_position(40*pinky_column,40*pinky_row)
-            add(pinky)
+                moved = True
+            else:
+                direction = random.randint(1,4)
+    if pinky_vulnerable == True:
+        remove(pinky_frightened)
+        remove(pinky)
+        pinky_frightened.set_position(40*pinky_column,40*pinky_row)
+        add(pinky_frightened)
+    if pinky_vulnerable == False:
+        remove(pinky_frightened)
+        remove(pinky)  
+        pinky.set_position(40*pinky_column,40*pinky_row)
+        add(pinky)
         devour()
 pinky_move = timer.set_interval(pinky_controller, 225)
 
@@ -597,32 +682,40 @@ def inky_controller():
     direction = random.randint(1,4)
     
     if runtime == True:
-        if direction == 1:
-            if inky_column == 0:
-                inky_column += 18
-            elif arena[inky_row][inky_column - 1] != 1:
-                inky_column -= 1
-        if direction == 2:
-            if inky_column == 18:
-                inky_column -= 18
-            elif arena[inky_row][inky_column + 1] != 1:
-                inky_column += 1
-        if direction == 3:
-            if arena[inky_row - 1][inky_column] != 1:
+        moved = False
+        while runtime == True and moved == False:
+            if runtime == False:
+                break
+            if direction == 1 and can_move("inky", 1):
+                if inky_column == 0:
+                    inky_column += 18
+                else:
+                    inky_column -= 1
+                moved = True
+            elif direction == 2 and can_move("inky", 2):
+                if inky_column == 18:
+                    inky_column -= 18
+                else:
+                    inky_column += 1
+                moved = True                
+            elif direction == 3 and can_move("inky", 3):
                 inky_row -= 1
-        if direction == 4:
-            if arena[inky_row + 1][inky_column] != 1:
+                moved = True
+            elif direction == 4 and can_move("inky", 4):
                 inky_row += 1
-        if inky_vulnerable == True:
-            remove(inky_frightened)
-            remove(inky)
-            inky_frightened.set_position(40*inky_column,40*inky_row)
-            add(inky_frightened)
-        if inky_vulnerable == False:
-            remove(inky_frightened)
-            remove(inky)  
-            inky.set_position(40*inky_column,40*inky_row)
-            add(inky)
+                moved = True
+            else:
+                direction = random.randint(1,4)
+    if inky_vulnerable == True:
+        remove(inky_frightened)
+        remove(inky)
+        inky_frightened.set_position(40*inky_column,40*inky_row)
+        add(inky_frightened)
+    if inky_vulnerable == False:
+        remove(inky_frightened)
+        remove(inky)  
+        inky.set_position(40*inky_column,40*inky_row)
+        add(inky)
         devour()
 inky_move = timer.set_interval(inky_controller, 225)
 
@@ -642,32 +735,40 @@ def clyde_controller():
     direction = random.randint(1,4)
     
     if runtime == True:
-        if direction == 1:
-            if clyde_column == 0:
-                clyde_column += 18
-            elif arena[clyde_row][clyde_column - 1] != 1:
-                clyde_column -= 1
-        if direction == 2:
-            if clyde_column == 18:
-                clyde_column -= 18
-            elif arena[clyde_row][clyde_column + 1] != 1:
-                clyde_column += 1
-        if direction == 3:
-            if arena[clyde_row - 1][clyde_column] != 1:
+        moved = False
+        while runtime == True and moved == False:
+            if runtime == False:
+                break
+            if direction == 1 and can_move("clyde", 1):
+                if clyde_column == 0:
+                    clyde_column += 18
+                else:
+                    clyde_column -= 1
+                moved = True
+            elif direction == 2 and can_move("clyde", 2):
+                if clyde_column == 18:
+                    clyde_column -= 18
+                else:
+                    clyde_column += 1
+                moved = True                
+            elif direction == 3 and can_move("clyde", 3):
                 clyde_row -= 1
-        if direction == 4:
-            if arena[clyde_row + 1][clyde_column] != 1:
+                moved = True
+            elif direction == 4 and can_move("clyde", 4):
                 clyde_row += 1
-        if clyde_vulnerable == True:
-            remove(clyde_frightened)
-            remove(clyde)
-            clyde_frightened.set_position(40*clyde_column,40*clyde_row)
-            add(clyde_frightened)
-        if clyde_vulnerable == False:
-            remove(clyde_frightened)
-            remove(clyde)  
-            clyde.set_position(40*clyde_column,40*clyde_row)
-            add(clyde)
+                moved = True
+            else:
+                direction = random.randint(1,4)
+    if clyde_vulnerable == True:
+        remove(clyde_frightened)
+        remove(clyde)
+        clyde_frightened.set_position(40*clyde_column,40*clyde_row)
+        add(clyde_frightened)
+    if clyde_vulnerable == False:
+        remove(clyde_frightened)
+        remove(clyde)  
+        clyde.set_position(40*clyde_column,40*clyde_row)
+        add(clyde)
         devour()
 clyde_move = timer.set_interval(clyde_controller, 225)
 
@@ -800,7 +901,7 @@ def gain_power():
     pinky_vulnerable = True
     inky_vulnerable = True
     clyde_vulnerable = True
-    lost = timer.set_interval(lose_power, 4000)
+    lost = timer.set_interval(lose_power, 6000)
     
 def lose_power():
     global lost
@@ -882,7 +983,7 @@ def spawn_fruit():
     fruit.set_size(40,40)
     fruit.set_position(360,480)
     add(fruit)
-    slice_fruit = timer.set_interval(remove_fruit, 10000)
+    slice_fruit = timer.set_interval(remove_fruit, 20000)
     
 def remove_fruit():
     global arena
@@ -892,7 +993,7 @@ def remove_fruit():
         arena[12][9] = ""
         empty(360,480)
         timer.clear_interval(slice_fruit)
-slice_fruit = timer.set_interval(remove_fruit, 10000)
+slice_fruit = timer.set_interval(remove_fruit, 20000)
 timer.clear_interval(slice_fruit)
         
 def consume_fruit():
@@ -981,8 +1082,6 @@ def pacman_death():
 
 # Starting the Game:
 def start_game(x,y):
-    global runtime
-    global runtime
     global runtime
     global game_end
     remove(title)
@@ -1135,6 +1234,22 @@ def game_over():
     remove(pinky_frightened)
     remove(inky_frightened)
     remove(clyde_frightened)
+    global blinky_row
+    global blinky_column
+    global pinky_row
+    global pinky_column
+    global inky_row
+    global inky_column
+    global clyde_row
+    global clyde_column
+    blinky_row=0
+    blinky_column=0
+    pinky_row=0
+    pinky_column=0
+    inky_row=0
+    inky_column=0
+    clyde_row=0
+    clyde_column=0
     empty(column*40,row*40)
     pacman_state = 0
     if died == False and won == False:
